@@ -13,7 +13,6 @@ export default defineConfig({
       output: {
         assetFileNames: 'assets/[name].[hash][extname]',
       },
-      external: ['path', 'process'],
     },
   },
 
