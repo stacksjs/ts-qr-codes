@@ -1,12 +1,11 @@
-// import { defaults } from '../../config'
+import { defaults } from '../../config'
 import optionsFromStrings from './optionsFromStrings'
 
 export function getOptionsFromElement(element: HTMLElement): any {
   let options: { [key: string]: any } = {}
 
-  for (const property in {}) {
-  // for (const property in defaults) {
-    if (Object.prototype.hasOwnProperty.call({}, property)) {
+  for (const property in defaults) {
+    if (Object.prototype.hasOwnProperty.call(defaults, property)) {
       // jsbarcode-*
       if (element.hasAttribute(`jsbarcode-${property.toLowerCase()}`)) {
         options[property] = element.getAttribute(`jsbarcode-${property.toLowerCase()}`)
