@@ -11,7 +11,7 @@ export const defaults: QrxConfig = {
     displayValue: true,
     fontOptions: '',
     font: 'monospace',
-    text: undefined,
+    text: '',
     textAlign: 'center',
     textPosition: 'bottom',
     textMargin: 2,
@@ -24,11 +24,21 @@ export const defaults: QrxConfig = {
     marginLeft: undefined,
     marginRight: undefined,
     valid() { },
+    flat: false,
+    ean128: false,
+    elementTag: 'svg',
   },
 }
+// eslint-disable-next-line import/no-mutable-exports
+export let config: QrxConfig = defaults
+  ; (async () => {
+  config = await loadConfig({
+    name: 'qrx',
+    defaultConfig: defaults,
+  })
+})()
 
-// eslint-disable-next-line antfu/no-top-level-await
-export const config: QrxConfig = await loadConfig({
-  name: 'qrx',
-  defaultConfig: defaults,
-})
+// export const config: QrxConfig = await loadConfig({
+//   name: 'qrx',
+//   defaultConfig: defaults,
+// })

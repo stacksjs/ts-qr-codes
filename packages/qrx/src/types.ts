@@ -3,6 +3,11 @@ export interface QrxConfig {
   options: BarcodeConfig | QRCodeConfig
 }
 
+export interface QrxOptions {
+  type?: 'bar' | 'qr'
+  options?: BarcodeOptions | QRCodeOptions
+}
+
 export interface BarcodeSettings {
   format: string
   width: string | number
@@ -18,10 +23,10 @@ export interface BarcodeSettings {
   background: string
   lineColor: string
   margin: string | number
-  marginTop: string | number
-  marginBottom: string | number
-  marginLeft: string | number
-  marginRight: string | number
+  marginTop: string | number | undefined
+  marginBottom: string | number | undefined
+  marginLeft: string | number | undefined
+  marginRight: string | number | undefined
   flat: boolean
   ean128: string | boolean
   elementTag: string
@@ -31,7 +36,7 @@ export interface BarcodeSettings {
 export type BarcodeOptions = Partial<BarcodeSettings>
 
 interface NodeConfig extends BarcodeSettings {
-  xmlDocument: XMLDocument
+  xmlDocument?: XMLDocument
 }
 
 export interface NodeOptions extends BarcodeOptions {
