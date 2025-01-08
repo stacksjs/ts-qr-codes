@@ -1,4 +1,4 @@
-import { defaults } from '../config'
+// import { defaults } from '../config'
 import { barcodes } from './drivers/index'
 import ErrorHandler from './exceptions/ErrorHandler'
 import { InvalidInputException, NoElementException } from './exceptions/exceptions'
@@ -21,7 +21,7 @@ export const barcode = function (element: any, text: any, options: any): any {
   // Variables that will be passed through the API calls
   api._renderProperties = getRenderProperties(element)
   api._encodings = []
-  api._options = defaults
+  api._options = {}
   api._errorHandler = new ErrorHandler(api)
 
   // If text is set, use the simple syntax (render the barcode directly)
@@ -168,7 +168,7 @@ API.prototype.render = function () {
   return this
 }
 
-API.prototype._defaults = defaults
+API.prototype._defaults = {}
 
 // Prepares the encodings and calls the renderer
 function render(renderProperties: any, encodings: any[], options: any) {
