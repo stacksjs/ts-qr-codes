@@ -13,7 +13,7 @@ export default defineConfig({
       output: {
         assetFileNames: 'assets/[name].[hash][extname]',
       },
-      external: ['path', 'process', 'bunfig'],
+      external: ['path', 'process'],
     },
   },
 
@@ -59,7 +59,6 @@ export default defineConfig({
     exclude: [
       // 'vue',
       'body-scroll-lock',
-      'bunfig',
     ],
   },
 })
