@@ -13,10 +13,14 @@ export default defineConfig({
       output: {
         assetFileNames: 'assets/[name].[hash][extname]',
       },
+      external: ['path', 'process', 'bunfig'],
     },
   },
 
   resolve: {
+    alias: {
+      '@stacksjs/qrx': resolve(__dirname, '../../packages/qrx/src/index.ts'),
+    },
     dedupe: [
       'vue',
       '@vue/runtime-core',

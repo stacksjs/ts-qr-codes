@@ -1,6 +1,8 @@
-import type { QRCodeOptions, RSBlock } from './types'
-import { QRErrorCorrectLevel, QRMaskPattern, QRMode } from './types'
+import type { QRCodeOptions, RSBlock } from '../types'
+import { QRErrorCorrectLevel, QRMaskPattern, QRMode } from '../types'
 import { getAndroid, getUTF8Length, isSupportCanvas } from './utils'
+
+export * from './utils'
 
 /**
  * A TypeScript library for working with QR codes.
@@ -1545,7 +1547,6 @@ export class QRCode {
       colorLight: '#ffffff',
       correctLevel: QRErrorCorrectLevel.H,
       useSVG: false,
-      // Force the type definitions to be Required<T>.
     }
 
     if (typeof vOption === 'string') {

@@ -1,10 +1,10 @@
 <script setup>
-import { QRCode } from '@stacksjs/qrx'
+import { QRCode, QRErrorCorrectLevel } from '@stacksjs/qrx'
 import { onMounted, ref, watch } from 'vue'
 // import { QRCode, QRCodeCorrectLevel } from './qrcode'
 
 const text = ref('Hello World!')
-const errorLevel = ref('2') // H level by default
+const errorLevel = ref(QRErrorCorrectLevel.H)
 const useSVG = ref(true)
 const qrContainer = ref(null)
 let qrCode = null
