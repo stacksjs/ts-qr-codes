@@ -4,7 +4,6 @@ const resp = await Bun.build({
   target: 'browser',
   entrypoints: ['./src/index.ts'],
   outdir: './dist',
-  external: ['bunfig'],
   plugins: [dts()],
 })
 
