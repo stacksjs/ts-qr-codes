@@ -306,8 +306,8 @@ The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 Made with 💙
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/qrx?style=flat-square
-[npm-version-href]: https://npmjs.com/package/qrx
+[npm-version-src]: https://img.shields.io/npm/v/@stacksjs/qrx?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@stacksjs/qrx
 [github-actions-src]: https://img.shields.io/github/actions/workflow/status/stacksjs/qrx/ci.yml?style=flat-square&branch=main
 [github-actions-href]: https://github.com/stacksjs/qrx/actions?query=workflow%3Aci
 
