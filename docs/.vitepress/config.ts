@@ -85,14 +85,7 @@ const sidebar = [
               { text: 'UPC-E', link: '/api/barcode/EAN/UPC-E' },
             ]
           },
-          {
-            text: 'ITF',
-            link: '/api/barcode/ITF',
-            items: [
-              { text: 'ITF', link: '/api/barcode/ITF/ITF' },
-              { text: 'ITF-14', link: '/api/barcode/ITF/ITF14' },
-            ]
-          },
+          { text: 'ITF-14', link: '/api/barcode/ITF-14' },
           {
             text: 'MSI',
             link: '/api/barcode/MSI',
