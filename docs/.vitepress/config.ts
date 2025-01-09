@@ -68,13 +68,43 @@ const sidebar = [
         link: '/api/barcode',
         collapsed: true,
         items: [
-          { text: 'Codabar', link: '/api/barcode/Codabar' },
+          {
+            text: 'CODE128',
+            link: '/api/barcode/CODE128',
+          },
           { text: 'CODE39', link: '/api/barcode/CODE39' },
-          { text: 'CODE128', link: '/api/barcode/CODE128' },
-          { text: 'EAN', link: '/api/barcode/EAN' },
-          { text: 'ITF-14', link: '/api/barcode/ITF-14' },
-          { text: 'MSI', link: '/api/barcode/MSI' },
+          {
+            text: 'EAN / UPC',
+            link: '/api/barcode/EAN',
+            items: [
+              { text: 'EAN-13', link: '/api/barcode/EAN/EAN13' },
+              { text: 'EAN-8', link: '/api/barcode/EAN/EAN8' },
+              { text: 'EAN-5', link: '/api/barcode/EAN/EAN5' },
+              { text: 'EAN-2', link: '/api/barcode/EAN/EAN2' },
+              { text: 'UPC-A', link: '/api/barcode/EAN/UPCA' },
+              { text: 'UPC-E', link: '/api/barcode/EAN/UPCE' },
+            ]
+          },
+          {
+            text: 'ITF',
+            link: '/api/barcode/ITF',
+            items: [
+              { text: 'ITF', link: '/api/barcode/ITF/ITF' },
+              { text: 'ITF-14', link: '/api/barcode/ITF/ITF14' },
+            ]
+          },
+          {
+            text: 'MSI',
+            link: '/api/barcode/MSI',
+            items: [
+              { text: 'MSI10', link: '/api/barcode/MSI/MSI10' },
+              { text: 'MSI11', link: '/api/barcode/MSI/MSI11' },
+              { text: 'MSI1010', link: '/api/barcode/MSI/MSI1010' },
+              { text: 'MSI1110', link: '/api/barcode/MSI/MSI1110' },
+            ]
+          },
           { text: 'Pharmacode', link: '/api/barcode/Pharmacode' },
+          { text: 'Codabar', link: '/api/barcode/Codabar' },
         ],
       },
       { text: 'QR Codes', link: '/api/qr-code' },
