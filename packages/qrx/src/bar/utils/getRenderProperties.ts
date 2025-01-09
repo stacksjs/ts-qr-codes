@@ -1,7 +1,3 @@
-/* global HTMLImageElement */
-/* global HTMLCanvasElement */
-/* global SVGElement */
-
 import { InvalidElementException } from '../exceptions/exceptions'
 import renderers from '../renderers/index'
 import getOptionsFromElement from './getOptionsFromElement'

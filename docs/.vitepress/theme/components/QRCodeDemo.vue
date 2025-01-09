@@ -1,7 +1,6 @@
 <script setup>
 import { QRCode, QRErrorCorrectLevel } from '@stacksjs/qrx'
 import { onMounted, ref, watch } from 'vue'
-// import { QRCode, QRCodeCorrectLevel } from './qrcode'
 
 const text = ref('Hello World!')
 const errorLevel = ref(QRErrorCorrectLevel.H)
