@@ -112,7 +112,7 @@ export default withPwa(
       ['meta', { property: 'og:description', content: description }],
 
       ['meta', { property: 'og:site_name', content: 'qrx' }],
-      ['meta', { property: 'og:image', content: './images/og-image.png' }],
+      ['meta', { property: 'og:image', content: 'https://ts-quick-reaction.netlify.app/images/og-image.png' }],
       ['meta', { property: 'og:url', content: 'https://ts-quick-reaction.netlify.app/' }],
       // ['script', { 'src': 'https://cdn.usefathom.com/script.js', 'data-site': '', 'data-spa': 'auto', 'defer': '' }],
       ...analyticsHead,
