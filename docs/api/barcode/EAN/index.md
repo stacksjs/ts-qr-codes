@@ -91,7 +91,7 @@ barcode('#barcode', '1234567890128', {
 
 ## Check Digits
 
-[EAN-13](/api/barcode/EAN/EAN-13), [UPC](/api/barcode/EAN/UPC), and [EAN-8](/api/barcode/EAN/EAN-8) include a check digit for validation. If not provided, it's automatically calculated:
+[EAN-13](/api/barcode/EAN/EAN-13), [UPC](/api/barcode/EAN/UPC-A), and [EAN-8](/api/barcode/EAN/EAN-8) include a check digit for validation. If not provided, it's automatically calculated:
 
 ```ts
 barcode('#barcode', '590123412345', { format: 'EAN13' })

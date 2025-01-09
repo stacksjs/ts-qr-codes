@@ -106,10 +106,10 @@ barcode('#barcode', '123456789', {
    - Stop character
 
 3. **Variants Available**
-   - [MSI10](./MSI/MSI10.md) - Single Mod 10
-   - [MSI11](./MSI/MSI11.md) - Single Mod 11
-   - [MSI1010](./MSI/MSI1010.md) - Double Mod 10
-   - [MSI1110](./MSI/MSI1110.md) - Mod 11 & Mod 10
+   - [MSI10](./MSI10) - Single Mod 10
+   - [MSI11](./MSI11) - Single Mod 11
+   - [MSI1010](./MSI1010) - Double Mod 10
+   - [MSI1110](./MSI1110) - Mod 11 & Mod 10
 
 ## Best Practices
 
@@ -144,7 +144,7 @@ barcode('#barcode', '123456789', { format: 'CODE128' })
 
 For detailed information about specific MSI variants, see:
 
-- [MSI10 Documentation](./MSI/MSI10.md)
-- [MSI11 Documentation](./MSI/MSI11.md)
-- [MSI1010 Documentation](./MSI/MSI1010.md)
-- [MSI1110 Documentation](./MSI/MSI1110.md)
+- [MSI10 Documentation](./MSI10.md)
+- [MSI11 Documentation](./MSI11.md)
+- [MSI1010 Documentation](./MSI1010.md)
+- [MSI1110 Documentation](./MSI1110.md)
