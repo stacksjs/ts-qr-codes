@@ -77,12 +77,12 @@ const sidebar = [
             text: 'EAN / UPC',
             link: '/api/barcode/EAN',
             items: [
-              { text: 'EAN-13', link: '/api/barcode/EAN/EAN13' },
-              { text: 'EAN-8', link: '/api/barcode/EAN/EAN8' },
-              { text: 'EAN-5', link: '/api/barcode/EAN/EAN5' },
-              { text: 'EAN-2', link: '/api/barcode/EAN/EAN2' },
-              { text: 'UPC-A', link: '/api/barcode/EAN/UPCA' },
-              { text: 'UPC-E', link: '/api/barcode/EAN/UPCE' },
+              { text: 'EAN-13', link: '/api/barcode/EAN/EAN-13' },
+              { text: 'EAN-8', link: '/api/barcode/EAN/EAN-8' },
+              { text: 'EAN-5', link: '/api/barcode/EAN/EAN-5' },
+              { text: 'EAN-2', link: '/api/barcode/EAN/EAN-2' },
+              { text: 'UPC-A', link: '/api/barcode/EAN/UPC-A' },
+              { text: 'UPC-E', link: '/api/barcode/EAN/UPC-E' },
             ]
           },
           {
