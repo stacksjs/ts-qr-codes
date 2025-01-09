@@ -2,8 +2,125 @@
 import { barcode } from '@stacksjs/qrx'
 import { nextTick, onMounted, ref, watch } from 'vue'
 
+interface BarcodeFormat {
+  value: string
+  label: string
+  pattern: RegExp
+  hint: string
+  example: string
+}
+
+const formats: BarcodeFormat[] = [
+  {
+    value: 'CODE128',
+    label: 'Code 128',
+    pattern: /^[\x00-\x7F\xC8-\xD3]+$/,
+    hint: 'Accepts any ASCII character',
+    example: '123ABC',
+  },
+  {
+    value: 'EAN13',
+    label: 'EAN-13',
+    pattern: /^\d{12,13}$/,
+    hint: 'Must be exactly 12 or 13 digits',
+    example: '5901234123457',
+  },
+  {
+    value: 'EAN8',
+    label: 'EAN-8',
+    pattern: /^\d{7,8}$/,
+    hint: 'Must be exactly 7 or 8 digits',
+    example: '96385074',
+  },
+  {
+    value: 'EAN5',
+    label: 'EAN-5',
+    pattern: /^\d{5}$/,
+    hint: 'Must be exactly 5 digits',
+    example: '54495',
+  },
+  {
+    value: 'EAN2',
+    label: 'EAN-2',
+    pattern: /^\d{2}$/,
+    hint: 'Must be exactly 2 digits',
+    example: '53',
+  },
+  {
+    value: 'UPC',
+    label: 'UPC',
+    pattern: /^\d{11,12}$/,
+    hint: 'Must be exactly 11 or 12 digits',
+    example: '123456789012',
+  },
+  {
+    value: 'CODE39',
+    label: 'Code 39',
+    pattern: /^[0-9A-Z\-. $/+%]+$/,
+    hint: 'Accepts digits, uppercase letters, and special characters: -. $/+%',
+    example: 'CODE-39',
+  },
+  {
+    value: 'ITF14',
+    label: 'ITF-14',
+    pattern: /^\d{13,14}$/,
+    hint: 'Must be exactly 13 or 14 digits',
+    example: '15400141288763',
+  },
+  {
+    value: 'MSI',
+    label: 'MSI',
+    pattern: /^\d+$/,
+    hint: 'Accepts only digits',
+    example: '123456',
+  },
+  {
+    value: 'MSI10',
+    label: 'MSI-10',
+    pattern: /^\d+$/,
+    hint: 'Accepts only digits',
+    example: '123456',
+  },
+  {
+    value: 'MSI11',
+    label: 'MSI-11',
+    pattern: /^\d+$/,
+    hint: 'Accepts only digits',
+    example: '123456',
+  },
+  {
+    value: 'MSI1010',
+    label: 'MSI-1010',
+    pattern: /^\d+$/,
+    hint: 'Accepts only digits',
+    example: '123456',
+  },
+  {
+    value: 'MSI1110',
+    label: 'MSI-1110',
+    pattern: /^\d+$/,
+    hint: 'Accepts only digits',
+    example: '123456',
+  },
+  {
+    value: 'pharmacode',
+    label: 'Pharmacode',
+    pattern: /^\d+$/,
+    hint: 'Must be a number between 3 and 131070',
+    example: '1234',
+  },
+  {
+    value: 'codabar',
+    label: 'Codabar',
+    pattern: /^[A-D][0-9\-$:/.+]+[A-D]$/,
+    hint: 'Must start and end with A-D, content can be digits and -$:/.+',
+    example: 'A12345B',
+  },
+]
+
 const error = ref('')
-const text = ref('123456789')
+const currentFormat = ref(formats[0])
+const text = ref(formats[0].example)
 const format = ref('CODE128')
 const width = ref(2)
 const height = ref(100)
@@ -18,31 +135,40 @@ const background = ref('#ffffff')
 const lineColor = ref('#ffffff')
 const margin = ref(10)
 
+watch(format, (newFormat) => {
+  currentFormat.value = formats.find(f => f.value === newFormat) || formats[0]
+  // Don't automatically change the text when format changes
+})
+
 const barcodeContainer = ref<HTMLElement | null>(null)
 
-const formats = [
-  'CODE128',
-  'EAN13',
-  'EAN8',
-  'EAN5',
-  'EAN2',
-  'UPC',
-  'CODE39',
-  'ITF14',
-  'MSI',
-  'MSI10',
-  'MSI11',
-  'MSI1010',
-  'MSI1110',
-  'pharmacode',
-  'codabar',
-]
+function validateInput(): boolean {
+  const format = currentFormat.value
+  if (!format.pattern.test(text.value)) {
+    error.value = `Invalid format for ${format.label}. ${format.hint}`
+    return false
+  }
+
+  if (format.value === 'pharmacode') {
+    const num = Number(text.value)
+    if (num < 3 || num > 131070) {
+      error.value = 'Pharmacode must be a number between 3 and 131070'
+      return false
+    }
+  }
+
+  return true
+}
 
 function updateBarcode() {
   if (!barcodeContainer.value)
     return
 
   error.value = ''
+
+  if (!validateInput()) {
+    return
+  }
 
   try {
     // Create SVG element inside container
@@ -129,12 +255,18 @@ watch([
           >
             <option
               v-for="fmt in formats"
-              :key="fmt"
-              :value="fmt"
+              :key="fmt.value"
+              :value="fmt.value"
             >
-              {{ fmt }}
+              {{ fmt.label }}
             </option>
           </select>
+          <div class="format-hint">
+            <p>{{ currentFormat.hint }}</p>
+            <p class="example">
+              Example: {{ currentFormat.example }}
+            </p>
+          </div>
         </div>
 
         <!-- Display Value Toggle -->
@@ -336,6 +468,18 @@ input[type="checkbox"] {
 
 .barcode-section {
   position: relative;
+}
+
+.format-hint {
+  margin-top: 4px;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.format-hint .example {
+  color: #0066cc;
+  margin-top: 2px;
+  font-family: monospace;
 }
 
 .error-message {
