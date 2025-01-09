@@ -75,7 +75,7 @@ const sidebar = [
           { text: 'CODE39', link: '/api/barcode/CODE39' },
           {
             text: 'EAN / UPC',
-            link: '/api/barcode/EAN',
+            link: '/api/barcode/EAN/',
             items: [
               { text: 'EAN-13', link: '/api/barcode/EAN/EAN-13' },
               { text: 'EAN-8', link: '/api/barcode/EAN/EAN-8' },
@@ -88,7 +88,7 @@ const sidebar = [
           { text: 'ITF-14', link: '/api/barcode/ITF-14' },
           {
             text: 'MSI',
-            link: '/api/barcode/MSI',
+            link: '/api/barcode/MSI/',
             items: [
               { text: 'MSI10', link: '/api/barcode/MSI/MSI10' },
               { text: 'MSI11', link: '/api/barcode/MSI/MSI11' },
