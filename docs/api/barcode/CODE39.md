@@ -81,14 +81,16 @@ barcode('#barcode', 'CUSTOM39', {
 ## Common Use Cases
 
 1. **Military/Government**
-  - CAGE (Commercial and Government Entity) codes
-  - Department of Defense applications
+   - CAGE (Commercial and Government Entity) codes
+   - Department of Defense applications
+
 2. **Automotive Industry**
-  - Vehicle Identification Numbers (VIN)
-  - Part tracking
+   - Vehicle Identification Numbers (VIN)
+   - Part tracking
+
 3. **Healthcare**
-  - Patient identification
-  - Medical equipment tracking
+   - Patient identification
+   - Medical equipment tracking
 
 [!NOTE] Image needed: Example of CODE39 in real-world application
 
@@ -112,20 +114,22 @@ barcode('#barcode', 'CUSTOM39', {
 ## Best Practices
 
 1. Input Validation
-  - Always verify input contains only valid characters
-  - Consider using uppercase transformation for input
+   - Always verify input contains only valid characters
+   - Consider using uppercase transformation for input
+
 2. Error Handling
-  ```ts
-  try {
-    barcode('#barcode', 'TEST-123', { format: 'CODE39' })
-  }
-  catch (error) {
-    console.error('Barcode generation failed:', error)
-  }
-  ```
+   ```ts
+   try {
+     barcode('#barcode', 'TEST-123', { format: 'CODE39' })
+   }
+   catch (error) {
+     console.error('Barcode generation failed:', error)
+   }
+   ```
+
 3. Check Digit Usage
-  - Enable mod43 for applications requiring high reliability
-  - Ensure scanners are configured correctly for mod43
+   - Enable mod43 for applications requiring high reliability
+   - Ensure scanners are configured correctly for mod43
 
 ## Migration to CODE128
 

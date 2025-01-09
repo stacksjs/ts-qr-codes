@@ -105,29 +105,31 @@ barcode('#barcode', 'Example1234', {
 ## Best Practices
 
 1. Mode Selection:
-  - Use automatic mode unless you have specific requirements
-  - Use Mode C for number-only data for maximum density
-  - Use Mode A when uppercase and control characters are needed
-  - Use Mode B for mixed-case text
+   - Use automatic mode unless you have specific requirements
+   - Use Mode C for number-only data for maximum density
+   - Use Mode A when uppercase and control characters are needed
+   - Use Mode B for mixed-case text
+
 2. Data Validation:
-  - ```ts
-    barcode('#barcode', 'Your Data', {
-      format: 'CODE128',
-      valid: (valid) => {
-        if (!valid)
-          console.error('Invalid data for CODE128')
-      }
-    })
-    ```
+   ```ts
+   barcode('#barcode', 'Your Data', {
+     format: 'CODE128',
+     valid: (valid) => {
+       if (!valid)
+         console.error('Invalid data for CODE128')
+     }
+   })
+   ```
+
 3. Error Handling:
-  - ```ts
-    try {
-      barcode('#barcode', 'Your Data', { format: 'CODE128' })
-    }
-    catch (error) {
-      console.error('Failed to generate barcode:', error)
-    }
-    ```
+   ```ts
+   try {
+     barcode('#barcode', 'Your Data', { format: 'CODE128' })
+   }
+   catch (error) {
+     console.error('Failed to generate barcode:', error)
+   }
+   ```
 
 ## Format Specifications
 
