@@ -82,8 +82,8 @@ const sidebar = [
   },
   { text: 'Showcase', link: '/showcase' },
 ]
-const description = 'TypeScript QR & Bar Code generating & reading. Lightweight & powerful.'
-const title = 'qrx | TypeScript QR & Bar Code generating & reading. Lightweight & powerful..'
+const description = 'TypeScript QR & Barcode generating & reading. Lightweight & powerful.'
+const title = 'qrx | QR & Barcode generating & reading. Lightweight & powerful.'
 
 export default withPwa(
   defineConfig({
