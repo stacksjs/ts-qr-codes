@@ -58,19 +58,21 @@ barcode('#barcode', '54495', {
 ## Common Applications
 
 1. **Book Pricing**
-  - Currency indicator (0-7: GBP, 8: USD, 9: AUD)
-  - Price value
-2. **Magazine Pricing**
-  - Issue number
-  - Price information
-3. **Currency Encoding** Example codes:
-  - ```ts
-    // £5.99 in GBP
-    barcode('#barcode', '05991', { format: 'EAN5' })
+   - Currency indicator (0-7: GBP, 8: USD, 9: AUD)
+   - Price value
 
-    // $15.95 in USD
-    barcode('#barcode', '81595', { format: 'EAN5' })
-    ```
+2. **Magazine Pricing**
+   - Issue number
+   - Price information
+
+3. **Currency Encoding** Example codes:
+   ```ts
+   // £5.99 in GBP
+   barcode('#barcode', '05991', { format: 'EAN5' })
+
+   // $15.95 in USD
+   barcode('#barcode', '81595', { format: 'EAN5' })
+   ```
 
 [!NOTE] Image needed: Currency encoding examples
 
@@ -80,14 +82,15 @@ barcode('#barcode', '54495', {
   - Right-aligned with main barcode
   - Standard gap between main barcode
   - Same baseline alignment
+
 2. **Height Options**
-  - ```ts
-    // Taller than main barcode
-    barcode('#barcode', '54495', {
-      format: 'EAN5',
-      height: 85  // Compared to standard 70
-    })
-    ```
+   ```ts
+   // Taller than main barcode
+   barcode('#barcode', '54495', {
+     format: 'EAN5',
+     height: 85  // Compared to standard 70
+   })
+   ```
 
 [!NOTE] Image needed: Positioning visualization
 
@@ -117,10 +120,10 @@ barcode('#barcode', '54495', {
 
 ## Technical Notes
 
-1. No check digit used
-2. Must be 5 digits exactly
-3. Cannot be used standalone
-4. Scanner must support add-ons
-5. Standard right-alignment required
+- No check digit used
+- Must be 5 digits exactly
+- Cannot be used standalone
+- Scanner must support add-ons
+- Standard right-alignment required
 
 [!NOTE] Image needed: Technical specifications diagram

@@ -100,15 +100,17 @@ barcode('#barcode')
 ## Common Applications
 
 1. Retail Products
-  - Standard retail products
-  - Point of sale scanning
-  - Inventory management
+   - Standard retail products
+   - Point of sale scanning
+   - Inventory management
+
 2. Books (ISBN)
-  - Prefix: 978 or 979
-  - Used with EAN-5 for price
+   - Prefix: 978 or 979
+   - Used with EAN-5 for price
+
 3. Periodicals (ISSN)
-  - Prefix: 977
-  - Used with EAN-2 for issue numbers
+   - Prefix: 977
+   - Used with EAN-2 for issue numbers
 
 [!NOTE] Image needed: Real-world application examples
 

@@ -85,13 +85,14 @@ barcode('#barcode')
 ## Common Applications
 
 1. Small Products
-  - Confectionery
-  - Cosmetics
-  - Small electronics
+   - Confectionery
+   - Cosmetics
+   - Small electronics
+
 2. Space-Limited Packaging
-  - Travel-size products
-  - Small containers
-  - Limited label space
+   - Travel-size products
+   - Small containers
+   - Limited label space
 
 [!NOTE] Image needed: Real-world application examples
 

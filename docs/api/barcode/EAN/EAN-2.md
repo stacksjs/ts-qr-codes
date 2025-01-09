@@ -59,37 +59,40 @@ barcode('#barcode', '53', {
 ## Common Applications
 
 1. Magazine Issues
-  - ```ts
-    // Issue 12 of a magazine
-    barcode('#barcode', '12', { format: 'EAN2' })
-    ```
+   ```ts
+   // Issue 12 of a magazine
+   barcode('#barcode', '12', { format: 'EAN2' })
+   ```
+
 2. Newspaper Editions
-  - ```ts
-    // Sunday edition (01)
-    barcode('#barcode', '01', { format: 'EAN2' })
-    ```
+   ```ts
+   // Sunday edition (01)
+   barcode('#barcode', '01', { format: 'EAN2' })
+   ```
+
 3. Version Indicators
-  - ```ts
-    // Version 2.0
-    barcode('#barcode', '20', { format: 'EAN2' })
-    ```
+   ```ts
+   // Version 2.0
+   barcode('#barcode', '20', { format: 'EAN2' })
+   ```
 
 [!NOTE] Image needed: Real-world application examples
 
 ## Positioning Guidelines
 
 1. Standard Placement
-  - Right-aligned with main barcode
-  - Specific gap width (9-12 modules)
-  - Baseline alignment with main barcode
+   - Right-aligned with main barcode
+   - Specific gap width (9-12 modules)
+   - Baseline alignment with main barcode
+
 2. Height Considerations
-  - ```ts
-    // Typically taller than main barcode
-    barcode('#barcode', '53', {
-      format: 'EAN2',
-      height: 85  // Compared to standard 70
-    })
-    ```
+   ```ts
+   // Typically taller than main barcode
+   barcode('#barcode', '53', {
+     format: 'EAN2',
+     height: 85  // Compared to standard 70
+   })
+   ```
 
 [!NOTE] Image needed: Positioning and alignment diagram
 
@@ -112,14 +115,15 @@ barcode('#barcode', '53', {
 ## Best Practices
 
 1. Usage Guidelines
-  - Always use with main barcode
-  - Maintain standard spacing
-  - Use consistent height ratio
-  - Validate 2-digit input
-  - Consider scanner compatibility
+   - Always use with main barcode
+   - Maintain standard spacing
+   - Use consistent height ratio
+   - Validate 2-digit input
+   - Consider scanner compatibility
+
 2. Common Patterns
-  - 00-09: Daily publications
-  - 10-99: Weekly/monthly publications
+   - 00-09: _Daily publications_
+   - 10-99: _Weekly/monthly publications_
 
 ## Technical Notes
 

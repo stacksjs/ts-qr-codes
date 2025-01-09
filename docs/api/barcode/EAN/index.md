@@ -1,6 +1,6 @@
 # EAN & UPC Barcodes
 
-EAN (European Article Number) and UPC (Universal Product Code) are standardized barcodes used worldwide for retail products. These barcode systems are managed by GS1 and are crucial for product identification in retail environments.
+EAN _(European Article Number)_ and UPC _(Universal Product Code)_ are standardized barcodes used worldwide for retail products. These barcode systems are managed by GS1 and are crucial for product identification in retail environments.
 
 ## Supported Formats
 
