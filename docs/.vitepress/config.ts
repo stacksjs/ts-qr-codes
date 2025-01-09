@@ -66,7 +66,7 @@ const sidebar = [
       {
         text: 'Barcodes',
         link: '/api/barcode',
-        collapsed: true,
+        collapsed: false,
         items: [
           {
             text: 'CODE128',
@@ -83,7 +83,7 @@ const sidebar = [
               { text: 'EAN-2', link: '/api/barcode/EAN/EAN-2' },
               { text: 'UPC-A', link: '/api/barcode/EAN/UPC-A' },
               { text: 'UPC-E', link: '/api/barcode/EAN/UPC-E' },
-            ]
+            ],
           },
           { text: 'ITF-14', link: '/api/barcode/ITF-14' },
           {
@@ -94,7 +94,7 @@ const sidebar = [
               { text: 'MSI11', link: '/api/barcode/MSI/MSI11' },
               { text: 'MSI1010', link: '/api/barcode/MSI/MSI1010' },
               { text: 'MSI1110', link: '/api/barcode/MSI/MSI1110' },
-            ]
+            ],
           },
           { text: 'Pharmacode', link: '/api/barcode/Pharmacode' },
           { text: 'Codabar', link: '/api/barcode/Codabar' },
