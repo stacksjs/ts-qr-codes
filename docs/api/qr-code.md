@@ -27,22 +27,22 @@ import { QRCode } from '@stacksjs/qrx'
 
 const options = {
   // Size Options
-  width: 256,             // Width in pixels
-  height: 256,           // Height in pixels
-  margin: 10,            // Margin around QR code
+  width: 256, // Width in pixels
+  height: 256, // Height in pixels
+  margin: 10, // Margin around QR code
 
   // Color Options
-  colorDark: '#000000',  // QR code color
+  colorDark: '#000000', // QR code color
   colorLight: '#ffffff', // Background color
 
   // Error Correction
   correctLevel: QRErrorCorrectLevel.H, // H, Q, M, or L
 
   // Rendering
-  useSVG: true,         // Use SVG renderer instead of canvas
+  useSVG: true, // Use SVG renderer instead of canvas
 }
 
-const qrCode = new QRCode(document.getElementById("qr-code"), options)
+const qrCode = new QRCode(document.getElementById('qr-code'), options)
 ```
 
 ## Error Correction Levels

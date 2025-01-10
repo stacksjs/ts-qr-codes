@@ -29,6 +29,7 @@ glog
 GTIN
 heroicons
 iconify
+ISSN
 jsbarcode
 Kazuhiko
 LGGGLL

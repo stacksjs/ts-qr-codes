@@ -98,7 +98,6 @@ barcode('#barcode', '590123412345', { format: 'EAN13' })
 // Automatically adds check digit: '5901234123457'
 ```
 
-
 ## OCR-B Font Support
 
 Standard EAN/UPC barcodes typically use OCR-B font. You can specify this using @font-face:
@@ -117,15 +116,17 @@ barcode('#barcode', '123456789012', {
 ## Common Use Cases
 
 1. Retail Products
-  - Product identification
-  - Inventory management
-  - Point of sale scanning
+   - Product identification
+   - Inventory management
+   - Point of sale scanning
+
 2. ISBN Books
-  - EAN-13 format with "978" or "979" prefix
-  - Optional EAN-5 add-on for price
+   - EAN-13 format with "978" or "979" prefix
+   - Optional EAN-5 add-on for price
+
 3. Magazines & Periodicals
-  - ISSN numbers in EAN-13 format
-  - EAN-2 add-on for issue numbers
+   - ISSN numbers in EAN-13 format
+   - EAN-2 add-on for issue numbers
 
 ## Detailed Format Documentation
 
