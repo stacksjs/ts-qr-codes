@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/stacksjs/qrx/issues"
   },
-  "keywords": ["typescript", "qrcode", "barcode", "qr", "bar", "code", "generate", "read", "lightweight", "powerful", "scanner", "reader", "decoder", "encoder", "stacksjs"],
+  "keywords": ["typescript", "qrcode", "barcode", "qr", "bar", "code", "generate", "read", "lightweight", "powerful", "scanner", "reader", "decoder", "encoder", "code128", "code39", "ean", "ean-2", "ean-5", "ean-8", "ean-13", "upc-a", "upc-e", "msi", "msi10", "msi11", "msi1010", "msi1110", "codabar", "itf-14", "pharmacode", "stacksjs"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
