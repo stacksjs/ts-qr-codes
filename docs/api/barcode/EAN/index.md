@@ -41,16 +41,16 @@ import { barcode } from '@stacksjs/qrx'
 
 barcode('#barcode', '5901234123457', {
   format: 'EAN13',
-  width: 2,               // Bar width
-  height: 100,           // Barcode height
-  displayValue: true,    // Show text below barcode
-  fontSize: 20,          // Text size
-  font: 'monospace',     // Text font
-  textAlign: 'center',   // Text alignment
+  width: 2, // Bar width
+  height: 100, // Barcode height
+  displayValue: true, // Show text below barcode
+  fontSize: 20, // Text size
+  font: 'monospace', // Text font
+  textAlign: 'center', // Text alignment
   textPosition: 'bottom', // Text position
   background: '#ffffff', // Background color
-  lineColor: '#000000',  // Bar color
-  flat: false,          // Remove guard bars if true
+  lineColor: '#000000', // Bar color
+  flat: false, // Remove guard bars if true
 })
 ```
 

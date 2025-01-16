@@ -20,13 +20,13 @@ qrx supports multiple MSI variants with different checksum calculations:
 
 ```ts
 // Basic MSI (no checksum)
-barcode('#barcode', '1234', { format: 'MSI' })     // Result: 1234
+barcode('#barcode', '1234', { format: 'MSI' }) // Result: 1234
 
 // With Mod 10 checksum
-barcode('#barcode', '1234', { format: 'MSI10' })   // Result: 12344
+barcode('#barcode', '1234', { format: 'MSI10' }) // Result: 12344
 
 // With Mod 11 checksum
-barcode('#barcode', '1234', { format: 'MSI11' })   // Result: 12343
+barcode('#barcode', '1234', { format: 'MSI11' }) // Result: 12343
 
 // With double Mod 10 checksum
 barcode('#barcode', '1234', { format: 'MSI1010' }) // Result: 123448

@@ -10,11 +10,14 @@ interface BarcodeFormat {
   example: string
 }
 
+// eslint-disable-next-line no-control-regex
+const patternCode128 = /^[\x00-\x7F\xC8-\xD3]+$/
+
 const formats: BarcodeFormat[] = [
   {
     value: 'CODE128',
     label: 'Code 128',
-    pattern: /^[\x00-\x7F\xC8-\xD3]+$/,
+    pattern: patternCode128,
     hint: 'Accepts any ASCII character',
     example: '123ABC',
   },

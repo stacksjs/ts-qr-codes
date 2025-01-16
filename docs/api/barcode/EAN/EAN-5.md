@@ -88,7 +88,7 @@ barcode('#barcode', '54495', {
    // Taller than main barcode
    barcode('#barcode', '54495', {
      format: 'EAN5',
-     height: 85  // Compared to standard 70
+     height: 85 // Compared to standard 70
    })
    ```
 

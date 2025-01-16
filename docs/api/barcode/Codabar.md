@@ -61,17 +61,17 @@ barcode('#barcode', 'A1234-5678.90B', {
 
 1. **Blood Banks**
    ```ts
-   barcode('#barcode', 'A1234567B', { format: 'codabar' })  // Blood type labeling
+   barcode('#barcode', 'A1234567B', { format: 'codabar' }) // Blood type labeling
    ```
 
 2. **Libraries**
    ```ts
-   barcode('#barcode', 'A123-456+789B', { format: 'codabar' })  // Book tracking
+   barcode('#barcode', 'A123-456+789B', { format: 'codabar' }) // Book tracking
    ```
 
 3. **Photo Labs**
    ```ts
-   barcode('#barcode', 'C12345/678D', { format: 'codabar' })  // Photo processing
+   barcode('#barcode', 'C12345/678D', { format: 'codabar' }) // Photo processing
    ```
 
 [!NOTE] Image needed: Real-world application examples
@@ -102,9 +102,9 @@ barcode('#barcode', 'A123456B', {
 2. **Data Validation**
    ```ts
    // Valid examples
-   barcode('#barcode', 'A1234-5678B')    // Numbers and hyphen
-   barcode('#barcode', 'C1234:5678D')    // Numbers and colon
-   barcode('#barcode', 'A12.34+56/78A')  // Multiple special chars
+   barcode('#barcode', 'A1234-5678B') // Numbers and hyphen
+   barcode('#barcode', 'C1234:5678D') // Numbers and colon
+   barcode('#barcode', 'A12.34+56/78A') // Multiple special chars
    ```
 
 3. **Print Quality**

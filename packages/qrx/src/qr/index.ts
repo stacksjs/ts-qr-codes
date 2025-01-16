@@ -55,9 +55,9 @@ class QRMath {
   for (let i = 8; i < 256; i++) {
     QRMath.EXP_TABLE[i]
       = QRMath.EXP_TABLE[i - 4]
-      ^ QRMath.EXP_TABLE[i - 5]
-      ^ QRMath.EXP_TABLE[i - 6]
-      ^ QRMath.EXP_TABLE[i - 8]
+        ^ QRMath.EXP_TABLE[i - 5]
+        ^ QRMath.EXP_TABLE[i - 6]
+        ^ QRMath.EXP_TABLE[i - 8]
   }
   // Initialize LOG_TABLE
   for (let i = 0; i < 255; i++) {
@@ -563,13 +563,13 @@ class QRUtil {
   public static G15 = (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0)
   public static G18
     = (1 << 12)
-    | (1 << 11)
-    | (1 << 10)
-    | (1 << 9)
-    | (1 << 8)
-    | (1 << 5)
-    | (1 << 2)
-    | (1 << 0)
+      | (1 << 11)
+      | (1 << 10)
+      | (1 << 9)
+      | (1 << 8)
+      | (1 << 5)
+      | (1 << 2)
+      | (1 << 0)
 
   public static G15_MASK
     = (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1)

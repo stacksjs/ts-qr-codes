@@ -55,15 +55,15 @@ import { barcode } from '@stacksjs/qrx'
 
 barcode('#barcode', 'CUSTOM39', {
   format: 'CODE39',
-  width: 2,               // Bar width
-  height: 100,            // Barcode height
-  displayValue: true,     // Show text below barcode
-  fontSize: 20,           // Text size
-  font: 'monospace',      // Text font
-  textAlign: 'center',    // Text alignment
+  width: 2, // Bar width
+  height: 100, // Barcode height
+  displayValue: true, // Show text below barcode
+  fontSize: 20, // Text size
+  font: 'monospace', // Text font
+  textAlign: 'center', // Text alignment
   textPosition: 'bottom', // Text position
-  background: '#ffffff',  // Background color
-  lineColor: '#ffffff'    // Bar color
+  background: '#ffffff', // Background color
+  lineColor: '#ffffff' // Bar color
 })
 ```
 

@@ -29,8 +29,8 @@
   "files": ["README.md", "dist"],
   "scripts": {
     "build": "bun --bun build.ts && bun run compile",
-    "lint": "bunx --bun eslint --flag unstable_ts_config .",
-    "lint:fix": "bunx --bun eslint --flag unstable_ts_config . --fix",
+    "lint": "bunx --bun eslint .",
+    "lint:fix": "bunx --bun eslint . --fix",
     "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
     "changelog": "bunx changelogen --output CHANGELOG.md",
     "release": "bun run changelog && bunx bumpp -r --all",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.5",
     "@shikijs/vitepress-twoslash": "^1.24.4",
-    "@stacksjs/eslint-config": "^3.12.0-beta.4",
+    "@stacksjs/eslint-config": "^3.13.1-beta.2",
     "@stacksjs/qrx": "workspace:*",
     "@types/bun": "^1.1.14",
     "@vite-pwa/vitepress": "^0.5.3",
@@ -63,7 +63,7 @@
     "unconfig": "0.3.10"
   },
   "lint-staged": {
-    "*.{js,ts}": "bunx --bun eslint --flag unstable_ts_config . --fix"
+    "*.{js,ts}": "bunx --bun eslint . --fix"
   },
   "workspaces": [
     "packages/*"

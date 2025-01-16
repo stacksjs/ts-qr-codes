@@ -29,7 +29,7 @@ The check digit is automatically calculated if omitted:
 import { barcode } from '@stacksjs/qrx'
 
 // These generate the same barcode
-barcode('#barcode', '590123412345', { format: 'EAN13' })  // Auto-calculates check digit
+barcode('#barcode', '590123412345', { format: 'EAN13' }) // Auto-calculates check digit
 barcode('#barcode', '5901234123457', { format: 'EAN13' }) // Manual check digit
 ```
 

@@ -28,8 +28,8 @@ The check digit is automatically calculated if omitted:
 import { barcode } from '@stacksjs/qrx'
 
 // These generate the same barcode
-barcode('#barcode', '9638507', { format: 'EAN8' })   // Auto-calculates check digit
-barcode('#barcode', '96385074', { format: 'EAN8' })  // Manual check digit
+barcode('#barcode', '9638507', { format: 'EAN8' }) // Auto-calculates check digit
+barcode('#barcode', '96385074', { format: 'EAN8' }) // Manual check digit
 ```
 
 ## Advanced Options

@@ -29,8 +29,8 @@ The check digit is automatically calculated if omitted:
 import { barcode } from '@stacksjs/qrx'
 
 // These generate the same barcode
-barcode('#barcode', '12345678901', { format: 'UPC' })   // Auto-calculates check digit
-barcode('#barcode', '123456789012', { format: 'UPC' })  // Manual check digit
+barcode('#barcode', '12345678901', { format: 'UPC' }) // Auto-calculates check digit
+barcode('#barcode', '123456789012', { format: 'UPC' }) // Manual check digit
 ```
 
 ## Flat Mode
@@ -62,7 +62,7 @@ barcode('#barcode', '123456789012', {
   fontSize: 18,
   textMargin: 0,
   flat: false,
-  guardHeight: 15  // Height of guard bars
+  guardHeight: 15 // Height of guard bars
 })
 ```
 
