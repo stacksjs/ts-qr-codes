@@ -6,7 +6,7 @@
 <!-- [![npm downloads][npm-downloads-src]][npm-downloads-href] -->
 <!-- [![Codecov][codecov-src]][codecov-href] -->
 
-# QR & Barcode Library & CLI
+# qrx
 
 > A QR & Barcode Library & CLI for Node.js/Bun/Browser.
 
