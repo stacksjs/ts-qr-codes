@@ -5,6 +5,7 @@ barcodes
 biomejs
 bluesky
 booleanish
+Bresenham
 bumpp
 bunfig
 bunx
@@ -22,6 +23,7 @@ destructurable
 dnsx
 dtsx
 entrypoints
+Exif
 gexp
 GGLLL
 GLGLL

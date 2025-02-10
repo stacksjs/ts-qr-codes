@@ -20,6 +20,13 @@
     "qr",
     "bar",
     "code",
+    "ean",
+    "code128",
+    "code39",
+    "codabar",
+    "i2of5",
+    "upc",
+    "getUserMedia",
     "generate",
     "read",
     "lightweight",
@@ -63,6 +70,13 @@
     "release": "bun publish --access public",
     "test": "bun test",
     "typecheck": "bun --bun tsc --noEmit"
+  },
+  "dependencies": {
+    "get-pixels": "^3.3.3",
+    "gl-matrix": "^3.4.3",
+    "lodash": "^4.17.21",
+    "ndarray": "^1.0.19",
+    "ndarray-linear-interpolate": "^1.0.0"
   },
   "devDependencies": {
     "@types/bun": "^1.1.14",

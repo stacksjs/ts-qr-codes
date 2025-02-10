@@ -296,8 +296,9 @@ We would like to extend our thanks to the following sponsors for funding Stacks 
 
 Many thanks for the libraries that laid the groundwork:
 
-- **QRCode.js**: <https://github.com/davidshimjs/qrcodejs>
 - **JsBarcode**: <https://github.com/lindell/JsBarcode>
+- **Quagga**: <https://github.com/ericblade/quagga2>
+- **QRCode.js**: <https://github.com/davidshimjs/qrcodejs>
 
 ## License
 

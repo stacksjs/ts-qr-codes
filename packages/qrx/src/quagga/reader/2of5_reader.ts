@@ -1,0 +1,230 @@
+import type { Barcode, BarcodeInfo, BarcodePosition } from './barcode_reader'
+import BarcodeReader from './barcode_reader'
+
+const N = 1
+const W = 3
+const START_PATTERN = [W, N, W, N, N, N]
+const STOP_PATTERN = [W, N, N, N, W]
+const CODE_PATTERN = [
+  [N, N, W, W, N],
+  [W, N, N, N, W],
+  [N, W, N, N, W],
+  [W, W, N, N, N],
+  [N, N, W, N, W],
+  [W, N, W, N, N],
+  [N, W, W, N, N],
+  [N, N, N, W, W],
+  [W, N, N, W, N],
+  [N, W, N, W, N],
+]
+const START_PATTERN_LENGTH = START_PATTERN.reduce((sum, val) => sum + val, 0)
+
+class TwoOfFiveReader extends BarcodeReader {
+  barSpaceRatio = [1, 1]
+
+  FORMAT = '2of5'
+
+  SINGLE_CODE_ERROR = 0.78
+
+  AVG_CODE_ERROR = 0.30
+
+  protected _findPattern(pattern: ReadonlyArray<number>, offset: number, isWhite = false, tryHarder = false): BarcodeInfo | null {
+    const counter = []
+    let counterPos = 0
+    const bestMatch = {
+      error: Number.MAX_VALUE,
+      code: -1,
+      start: 0,
+      end: 0,
+    }
+    let sum = 0
+    let error = 0
+    const epsilon = this.AVG_CODE_ERROR
+
+    if (!offset) {
+      offset = this._nextSet(this._row)
+    }
+
+    for (let i = 0; i < pattern.length; i++) {
+      counter[i] = 0
+    }
+
+    for (let i = offset; i < this._row.length; i++) {
+      if (this._row[i] ^ (isWhite ? 1 : 0)) {
+        counter[counterPos]++
+      }
+      else {
+        if (counterPos === counter.length - 1) {
+          sum = 0
+          for (let j = 0; j < counter.length; j++) {
+            sum += counter[j]
+          }
+          error = this._matchPattern(counter, pattern)
+          if (error < epsilon) {
+            bestMatch.error = error
+            bestMatch.start = i - sum
+            bestMatch.end = i
+            return bestMatch
+          }
+          if (tryHarder) {
+            for (let j = 0; j < counter.length - 2; j++) {
+              counter[j] = counter[j + 2]
+            }
+            counter[counter.length - 2] = 0
+            counter[counter.length - 1] = 0
+            counterPos--
+          }
+          else {
+            return null
+          }
+        }
+        else {
+          counterPos++
+        }
+        counter[counterPos] = 1
+        isWhite = !isWhite
+      }
+    }
+    return null
+  }
+
+  protected _findStart(): BarcodePosition | null {
+    let startInfo = null
+    let offset = this._nextSet(this._row)
+    let narrowBarWidth = 1
+    let leadingWhitespaceStart = 0
+
+    while (!startInfo) {
+      startInfo = this._findPattern(START_PATTERN, offset, false, true)
+      if (!startInfo) {
+        return null
+      }
+      narrowBarWidth = Math.floor((startInfo.end - startInfo.start) / START_PATTERN_LENGTH)
+      leadingWhitespaceStart = startInfo.start - narrowBarWidth * 5
+      if (leadingWhitespaceStart >= 0) {
+        if (this._matchRange(leadingWhitespaceStart, startInfo.start, 0)) {
+          return startInfo
+        }
+      }
+      offset = startInfo.end
+      startInfo = null
+    }
+    return startInfo
+  }
+
+  protected _verifyTrailingWhitespace(endInfo: BarcodeInfo): BarcodePosition | null {
+    const trailingWhitespaceEnd = endInfo.end + ((endInfo.end - endInfo.start) / 2)
+    if (trailingWhitespaceEnd < this._row.length) {
+      if (this._matchRange(endInfo.end, trailingWhitespaceEnd, 0)) {
+        return endInfo
+      }
+    }
+    return null
+  }
+
+  protected _findEnd(): BarcodePosition | null {
+    // TODO: reverse, followed by some calcs, followed by another reverse? really?
+    this._row.reverse()
+    const offset = this._nextSet(this._row)
+    const endInfo = this._findPattern(STOP_PATTERN, offset, false, true)
+    this._row.reverse()
+
+    if (endInfo === null) {
+      return null
+    }
+
+    // reverse numbers
+    const tmp = endInfo.start
+    endInfo.start = this._row.length - endInfo.end
+    endInfo.end = this._row.length - tmp
+
+    return endInfo !== null ? this._verifyTrailingWhitespace(endInfo) : null
+  }
+
+  protected _verifyCounterLength(counters: Array<number>) {
+    return (counters.length % 10 === 0)
+  }
+
+  protected _decodeCode(counter: ReadonlyArray<number>): BarcodeInfo | null {
+    const epsilon = this.AVG_CODE_ERROR
+    const bestMatch = {
+      error: Number.MAX_VALUE,
+      code: -1,
+      start: 0,
+      end: 0,
+    }
+
+    for (let code = 0; code < CODE_PATTERN.length; code++) {
+      const error = this._matchPattern(counter, CODE_PATTERN[code])
+      if (error < bestMatch.error!) {
+        bestMatch.code = code
+        bestMatch.error = error
+      }
+    }
+    if (bestMatch.error! < epsilon) {
+      return bestMatch
+    }
+    return null
+  }
+
+  protected _decodePayload(counters: ReadonlyArray<number>, result: Array<string>, decodedCodes: Array<BarcodeInfo | BarcodePosition>): BarcodeInfo | null {
+    let pos = 0
+    const counterLength = counters.length
+    const counter = [0, 0, 0, 0, 0]
+    let code: BarcodeInfo | null = null
+
+    while (pos < counterLength) {
+      for (let i = 0; i < 5; i++) {
+        counter[i] = counters[pos] * this.barSpaceRatio[0]
+        pos += 2
+      }
+      code = this._decodeCode(counter)
+      if (!code) {
+        return null
+      }
+      result.push(`${code.code}`)
+      decodedCodes.push(code)
+    }
+    return code
+  }
+
+  public decode(row?: Array<number>, start?: BarcodePosition): Barcode | null {
+    const startInfo = this._findStart()
+    if (!startInfo) {
+      return null
+    }
+
+    const endInfo = this._findEnd()
+    if (!endInfo) {
+      return null
+    }
+
+    const counters = this._fillCounters(startInfo.end, endInfo.start, false)
+    if (!this._verifyCounterLength(counters)) {
+      return null
+    }
+    const decodedCodes = []
+    decodedCodes.push(startInfo)
+
+    const result: Array<string> = []
+    const code = this._decodePayload(counters, result, decodedCodes)
+    if (!code) {
+      return null
+    }
+    if (result.length < 5) {
+      return null
+    }
+
+    decodedCodes.push(endInfo)
+    return {
+      code: result.join(''),
+      start: startInfo.start,
+      end: endInfo.end,
+      startInfo,
+      decodedCodes,
+      format: this.FORMAT,
+    }
+  }
+}
+
+export default TwoOfFiveReader
