@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@types/bun": "^1.1.14",
-    "lint-staged": "^15.3.0",
+    "lint-staged": "^16.2.3",
     "simple-git-hooks": "^2.11.1",
     "typescript": "^5.7.2"
   },
