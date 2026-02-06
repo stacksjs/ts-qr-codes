@@ -74,15 +74,15 @@
   "dependencies": {
     "get-pixels": "^3.3.3",
     "gl-matrix": "^3.4.4",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "ndarray": "^1.0.19",
     "ndarray-linear-interpolate": "^1.0.0"
   },
   "devDependencies": {
     "@types/bun": "^1.1.14",
     "bun-plugin-dtsx": "^0.21.9",
-    "bunfig": "^0.15.0",
-    "lint-staged": "^16.2.3",
+    "bunfig": "^0.15.6",
+    "lint-staged": "^16.2.7",
     "simple-git-hooks": "^2.13.1",
     "typescript": "^5.7.2"
   },
