@@ -10,7 +10,7 @@ const config: QrxConfig = {
     displayValue: true,
     fontOptions: '',
     font: 'monospace',
-    text: undefined,
+    text: '',
     textAlign: 'center',
     textPosition: 'bottom',
     textMargin: 2,
@@ -22,6 +22,9 @@ const config: QrxConfig = {
     marginBottom: undefined,
     marginLeft: undefined,
     marginRight: undefined,
+    flat: false,
+    ean128: false,
+    elementTag: 'svg',
     valid() { },
   },
 }
