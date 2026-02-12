@@ -28,6 +28,8 @@
     "node_modules",
     "**/dist",
     "**/quagga/**",
-    "test/**"
+    "test/**",
+    "packages/react/**",
+    "packages/vue/**"
   ]
 }
