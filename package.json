@@ -30,7 +30,7 @@
   "scripts": {
     "build": "bun --bun build.ts && bun run compile",
     "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
-    "test": "bun test",
+    "test": "bun test test/qrx.test.ts",
     "lint": "bunx --bun pickier run --mode lint .",
     "lint:fix": "bunx --bun pickier run --mode lint . --fix",
     "format": "bunx --bun pickier run --mode format .",
