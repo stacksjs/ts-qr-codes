@@ -48,8 +48,6 @@
   ],
   "scripts": {
     "build": "echo 'coming soon'",
-    "lint": "bunx --bun eslint --flag unstable_ts_config .",
-    "lint:fix": "bunx --bun eslint --flag unstable_ts_config . --fix",
     "release": "bun publish --access public",
     "prepublishOnly": "bun --bun run build",
     "test": "bun test",
@@ -58,13 +56,7 @@
   "dependencies": {
     "@stacksjs/qrx": "workspace:*"
   },
-  "devDependencies": {
-    "@types/bun": "^1.1.14",
-    "lint-staged": "^16.2.3",
-    "simple-git-hooks": "^2.11.1",
-    "typescript": "^5.7.2"
-  },
-  "lint-staged": {
-    "*.{js,ts}": "bunx --bun eslint --flag unstable_ts_config . --fix"
+  "peerDependencies": {
+    "vue": "^3.5.0"
   }
 }
