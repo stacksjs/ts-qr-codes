@@ -81,4 +81,4 @@ jobs:
         run: bun install
 
       - name: Unit Test
-        run: bun test
+        run: bun run test
