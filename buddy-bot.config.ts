@@ -3,7 +3,7 @@ import type { BuddyBotConfig } from 'buddy-bot'
 const config: BuddyBotConfig = {
   repository: {
     owner: 'stacksjs',
-    name: 'qrx',
+    name: 'ts-qr-codes',
     provider: 'github',
     // Uses GITHUB_TOKEN by default
   },
