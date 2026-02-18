@@ -1,7 +1,7 @@
 {
-  "name": "ts-quick-reaction",
+  "name": "ts-quick-codes",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "description": "QR & Bar Code generating & reading. Lightweight & powerful.",
   "author": "Chris Breuer <chris@stacksjs.org>",
@@ -14,7 +14,40 @@
   "bugs": {
     "url": "https://github.com/stacksjs/qrx/issues"
   },
-  "keywords": ["typescript", "qrcode", "barcode", "qr", "bar", "code", "generate", "read", "lightweight", "powerful", "scanner", "reader", "decoder", "encoder", "code128", "code39", "ean", "ean-2", "ean-5", "ean-8", "ean-13", "upc-a", "upc-e", "msi", "msi10", "msi11", "msi1010", "msi1110", "codabar", "itf-14", "pharmacode", "stacksjs"],
+  "keywords": [
+    "typescript",
+    "qrcode",
+    "barcode",
+    "qr",
+    "bar",
+    "code",
+    "generate",
+    "read",
+    "lightweight",
+    "powerful",
+    "scanner",
+    "reader",
+    "decoder",
+    "encoder",
+    "code128",
+    "code39",
+    "ean",
+    "ean-2",
+    "ean-5",
+    "ean-8",
+    "ean-13",
+    "upc-a",
+    "upc-e",
+    "msi",
+    "msi10",
+    "msi11",
+    "msi1010",
+    "msi1110",
+    "codabar",
+    "itf-14",
+    "pharmacode",
+    "stacksjs"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -26,7 +59,10 @@
   },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["README.md", "dist"],
+  "files": [
+    "README.md",
+    "dist"
+  ],
   "scripts": {
     "build": "bun --bun build.ts && bun run compile",
     "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
