@@ -62,7 +62,8 @@ env:
   # Create a PAT at: https://github.com/settings/tokens
   # Add it as a repository secret named 'BUDDY_BOT_TOKEN'
   # If BUDDY_BOT_TOKEN is not available, falls back to GITHUB_TOKEN (limited permissions)
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # BUDDY_BOT_TOKEN is preferred over GITHUB_TOKEN for API calls (broader repo scope)
+  GITHUB_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
   BUDDY_BOT_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN }}
 
 permissions:
@@ -121,7 +122,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           fetch-depth: 0 # Fetch full history for rebasing
           persist-credentials: true
 
@@ -158,7 +159,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           persist-credentials: true
 
@@ -207,7 +208,7 @@ jobs:
           fi
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           BUDDY_BOT_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN }}
 
       - name: Create check summary
@@ -239,7 +240,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           fetch-depth: 0
           persist-credentials: true
 
@@ -305,7 +306,7 @@ jobs:
           fi
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           BUDDY_BOT_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN }}
 
       - name: Dry run notification
@@ -348,7 +349,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -447,7 +448,7 @@ jobs:
           fi
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN || secrets.GITHUB_TOKEN }}
           BUDDY_BOT_TOKEN: ${{ secrets.BUDDY_BOT_TOKEN }}
 
       - name: Dry run notification
