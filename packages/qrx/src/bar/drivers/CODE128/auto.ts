@@ -65,6 +65,6 @@ export default (string: string): string => {
 
   return newString.replace(
     /[\xCD\xCE]([\s\S])[\xCD\xCE]/, // Any sequence between 205 and 206 characters
-    (match, char) => String.fromCharCode(203) + char,
+    (_match, char) => String.fromCharCode(203) + char,
   )
 }
