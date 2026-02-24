@@ -4,7 +4,7 @@ import { BINARIES } from './constants'
 export function encode(data: string, structure: string, separator?: string): string {
   let encoded = data
     .split('')
-    .map((val, idx) => BINARIES[structure[idx]] || '') // Ensure valid access
+    .map((_val, idx) => BINARIES[structure[idx]] || '') // Ensure valid access
     // @ts-expect-error should be able to improve this
     .map((val, idx) => val ? val[data[idx]] : '')
 
