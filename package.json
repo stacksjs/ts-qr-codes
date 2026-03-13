@@ -82,8 +82,8 @@
   "devDependencies": {
     "@stacksjs/docs": "^0.70.23",
     "@stacksjs/qrx": "workspace:*",
-    "better-dx": "^0.2.6",
-    "unocss": "^66.6.0"
+    "better-dx": "^0.2.7",
+    "unocss": "^66.6.6"
   },
   "overrides": {
     "unconfig": "0.3.10"
