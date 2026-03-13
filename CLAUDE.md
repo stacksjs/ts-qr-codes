@@ -2,7 +2,7 @@
 
 ## About
 
-QR & Bar Code generating & reading. Lightweight & powerful.
+qrx is a zero-dependency TypeScript library and CLI for generating and reading QR codes and barcodes. It supports numerous barcode formats including CODE128, EAN (13/8/5/2), UPC, CODE39, ITF-14, MSI, Pharmacode, and Codabar, and works across browsers, Node.js, and Bun. Output targets include SVG, Canvas, and IMG elements, with a fluent API for chaining multiple barcodes.
 
 ## Linting
 
