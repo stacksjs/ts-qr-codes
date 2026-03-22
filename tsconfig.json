@@ -30,6 +30,7 @@
     "**/quagga/**",
     "test/**",
     "packages/react/**",
-    "packages/vue/**"
+    "packages/vue/**",
+    "docs"
   ]
 }
