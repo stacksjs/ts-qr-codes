@@ -81,7 +81,8 @@
   },
   "devDependencies": {
     "@stacksjs/bunpress": "^0.1.4",
-    "better-dx": "^0.2.7"
+    "better-dx": "^0.2.7",
+    "cac": "^7.0.0"
   },
   "workspaces": [
     "packages/*"
