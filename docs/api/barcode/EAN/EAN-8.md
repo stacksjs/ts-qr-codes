@@ -5,7 +5,7 @@ EAN-8 is a shortened version of EAN-13, designed for use on smaller packages whe
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '96385074', { format: 'EAN8' })
 ```
@@ -25,7 +25,7 @@ An EAN-8 barcode consists of:
 The check digit is automatically calculated if omitted:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 // These generate the same barcode
 barcode('#barcode', '9638507', { format: 'EAN8' }) // Auto-calculates check digit
@@ -37,7 +37,7 @@ barcode('#barcode', '96385074', { format: 'EAN8' }) // Manual check digit
 You can customize the appearance of EAN-8 barcodes with these options:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '96385074', {
   format: 'EAN8',
@@ -56,7 +56,7 @@ barcode('#barcode', '96385074', {
 Remove guard bars for special applications:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '96385074', {
   format: 'EAN8',
@@ -71,7 +71,7 @@ barcode('#barcode', '96385074', {
 Can be combined with EAN-2 or EAN-5 supplemental barcodes:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode')
   .EAN8('96385074')
@@ -99,7 +99,7 @@ barcode('#barcode')
 ## Error Handling
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '96385074', {
   format: 'EAN8',

@@ -80,13 +80,8 @@
     "typecheck": "bun --bun tsc --noEmit"
   },
   "devDependencies": {
-    "@stacksjs/docs": "^0.70.23",
-    "@stacksjs/qrx": "workspace:*",
-    "better-dx": "^0.2.7",
-    "unocss": "^66.6.0"
-  },
-  "overrides": {
-    "unconfig": "0.3.10"
+    "@stacksjs/bunpress": "^0.1.4",
+    "better-dx": "^0.2.7"
   },
   "workspaces": [
     "packages/*"

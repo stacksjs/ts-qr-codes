@@ -5,7 +5,7 @@ UPC-E is a zero-suppressed version of UPC-A, designed for smaller packages. It's
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '01234565', { format: 'UPCE' })
 ```
@@ -40,7 +40,7 @@ UPC-E compresses UPC-A codes that end in zeros. The compression patterns are:
 ## Basic Encoding
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 // Direct UPC-E number
 barcode('#barcode', '01234565', { format: 'UPCE' })
@@ -52,7 +52,7 @@ barcode('#barcode', '01234565', { format: 'UPCE' })
 ## Advanced Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '01234565', {
   format: 'UPCE',
@@ -70,7 +70,7 @@ barcode('#barcode', '01234565', {
 ## Conversion Examples
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 // These UPC-A numbers compress to the same UPC-E
 barcode('#barcode', '01200000345', { format: 'UPCE' }) // -> 01234565
@@ -82,7 +82,7 @@ barcode('#barcode', '01234500005', { format: 'UPCE' }) // -> 01234565
 ## Add-on Support
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode')
   .UPCE('01234565')
@@ -99,7 +99,7 @@ barcode('#barcode')
 ## Error Handling
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '01234565', {
   format: 'UPCE',

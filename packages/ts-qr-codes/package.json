@@ -1,5 +1,5 @@
 {
-  "name": "@stacksjs/qrx",
+  "name": "ts-qr-codes",
   "type": "module",
   "private": true,
   "version": "0.1.1",
@@ -80,12 +80,7 @@
     "ndarray-linear-interpolate": "^1.0.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.14",
-    "bun-plugin-dtsx": "^0.21.9",
-    "bunfig": "^0.15.6",
-    "lint-staged": "^16.2.7",
-    "simple-git-hooks": "^2.13.1",
-    "typescript": "^5.7.2"
+    "bunfig": "^0.15.6"
   },
   "lint-staged": {
     "*.{js,ts}": "bunx --bun eslint --flag unstable_ts_config . --fix"

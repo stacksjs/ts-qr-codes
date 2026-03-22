@@ -5,7 +5,7 @@ MSI10 is the MSI variant that uses a single Mod 10 check digit for error detecti
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', { format: 'MSI10' }) // Result: 12344
 ```
@@ -33,7 +33,7 @@ Result: 12344
 ## Advanced Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', {
   format: 'MSI10',
@@ -53,7 +53,7 @@ barcode('#barcode', '1234', {
 ## Error Detection
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', {
   format: 'MSI10',

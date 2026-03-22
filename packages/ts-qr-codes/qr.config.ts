@@ -1,6 +1,6 @@
-import type { QrxConfig } from './src/types'
+import type { QRConfig } from './src/types'
 
-const config: QrxConfig = {
+const config: QRConfig = {
   type: 'bar', // should be qr code
 
   options: {

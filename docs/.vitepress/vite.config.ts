@@ -1,29 +1,26 @@
-import { resolve } from 'node:path'
+import { resolve } from "node:path";
 // import Inspect from 'vite-plugin-inspect'
-import UnoCSS from 'unocss/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import Icons from 'unplugin-icons/vite'
-import Components from 'unplugin-vue-components/vite'
-import { defineConfig } from 'vite'
+import UnoCSS from "unocss/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import Icons from "unplugin-icons/vite";
+import Components from "unplugin-vue-components/vite";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   build: {
-    assetsDir: 'assets',
+    assetsDir: "assets",
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[hash][extname]',
+        assetFileNames: "assets/[name].[hash][extname]",
       },
     },
   },
 
   resolve: {
     alias: {
-      '@stacksjs/qrx': resolve(__dirname, '../../packages/qrx/src/index.ts'),
+      "ts-qr-codes": resolve(__dirname, "../../packages/qrx/src/index.ts"),
     },
-    dedupe: [
-      'vue',
-      '@vue/runtime-core',
-    ],
+    dedupe: ["vue", "@vue/runtime-core"],
   },
 
   plugins: [
@@ -33,23 +30,23 @@ export default defineConfig({
 
     // plugins
     Components({
-      dirs: resolve(__dirname, 'theme/components'),
+      dirs: resolve(__dirname, "theme/components"),
       include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [
         IconsResolver({
-          componentPrefix: '',
+          componentPrefix: "",
         }),
       ],
-      dts: resolve(__dirname, 'components.d.ts'),
-      transformer: 'vue3',
+      dts: resolve(__dirname, "components.d.ts"),
+      transformer: "vue3",
     }),
 
     Icons({
-      compiler: 'vue3',
-      defaultStyle: 'display: inline-block',
+      compiler: "vue3",
+      defaultStyle: "display: inline-block",
     }),
 
-    UnoCSS(resolve(__dirname, 'unocss.config.ts')),
+    UnoCSS(resolve(__dirname, "unocss.config.ts")),
 
     // Inspect(),
   ],
@@ -57,7 +54,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: [
       // 'vue',
-      'body-scroll-lock',
+      "body-scroll-lock",
     ],
   },
-})
+});

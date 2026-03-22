@@ -1,39 +1,38 @@
 <script setup>
-import { QRCode, QRErrorCorrectLevel } from '@stacksjs/qrx'
-import { onMounted, ref, watch } from 'vue'
+import { QRCode, QRErrorCorrectLevel } from "ts-qr-codes";
+import { onMounted, ref, watch } from "vue";
 
-const text = ref('Hello World!')
-const errorLevel = ref(QRErrorCorrectLevel.H)
-const useSVG = ref(true)
-const qrContainer = ref(null)
-let qrCode = null
+const text = ref("Hello World!");
+const errorLevel = ref(QRErrorCorrectLevel.H);
+const useSVG = ref(true);
+const qrContainer = ref(null);
+let qrCode = null;
 
 function updateQRCode() {
-  if (!qrContainer.value)
-    return
+  if (!qrContainer.value) return;
 
   if (qrCode) {
-    qrCode.clear()
+    qrCode.clear();
   }
 
   qrCode = new QRCode(qrContainer.value, {
     text: text.value,
     width: 256,
     height: 256,
-    colorDark: '#000000',
-    colorLight: '#ffffff',
+    colorDark: "#000000",
+    colorLight: "#ffffff",
     correctLevel: Number.parseInt(errorLevel.value),
     useSVG: useSVG.value,
-  })
+  });
 }
 
 onMounted(() => {
-  updateQRCode()
-})
+  updateQRCode();
+});
 
 watch([text, errorLevel, useSVG], () => {
-  updateQRCode()
-})
+  updateQRCode();
+});
 </script>
 
 <template>
@@ -46,30 +45,22 @@ watch([text, errorLevel, useSVG], () => {
           v-model="text"
           type="text"
           placeholder="Enter text to encode"
-        >
+        />
       </div>
 
       <div class="input-group">
         <label for="error-level">Error Correction:</label>
         <select id="error-level" v-model="errorLevel">
-          <option value="1">
-            Level L (7%)
-          </option>
-          <option value="0">
-            Level M (15%)
-          </option>
-          <option value="3">
-            Level Q (25%)
-          </option>
-          <option value="2">
-            Level H (30%)
-          </option>
+          <option value="1">Level L (7%)</option>
+          <option value="0">Level M (15%)</option>
+          <option value="3">Level Q (25%)</option>
+          <option value="2">Level H (30%)</option>
         </select>
       </div>
 
       <div class="input-group">
         <label>
-          <input v-model="useSVG" type="checkbox">
+          <input v-model="useSVG" type="checkbox" />
           Use SVG Renderer
         </label>
       </div>

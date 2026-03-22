@@ -9,36 +9,36 @@ Choose your package manager of choice:
 ::: code-group
 
 ```sh [npm]
-npm install @stacksjs/qrx
-# npm i @stacksjs/qrx
+npm install ts-qr-codes
+# npm i ts-qr-codes
 
 # or, install globally via
-npm i -g @stacksjs/qrx
+npm i -g ts-qr-codes
 ```
 
 ```sh [bun]
-bun install @stacksjs/qrx
-# bun add @stacksjs/qrx
-# bun i @stacksjs/qrx
+bun install ts-qr-codes
+# bun add ts-qr-codes
+# bun i ts-qr-codes
 
 # or, install globally via
-bun add --global @stacksjs/qrx
+bun add --global ts-qr-codes
 ```
 
 ```sh [pnpm]
-pnpm add @stacksjs/qrx
-# pnpm i @stacksjs/qrx
+pnpm add ts-qr-codes
+# pnpm i ts-qr-codes
 
 # or, install globally via
-pnpm add --global @stacksjs/qrx
+pnpm add --global ts-qr-codes
 ```
 
 ```sh [yarn]
-yarn add @stacksjs/qrx
-# yarn i -d @stacksjs/qrx
+yarn add ts-qr-codes
+# yarn i -d ts-qr-codes
 
 # or, install globally via
-yarn global add @stacksjs/qrx
+yarn global add ts-qr-codes
 ```
 
 ```sh [brew]

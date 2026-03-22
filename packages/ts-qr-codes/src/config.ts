@@ -1,7 +1,7 @@
-import type { QrxConfig } from './types'
+import type { QRConfig } from './types'
 import { loadConfig } from 'bunfig'
 
-export const defaults: QrxConfig = {
+export const defaults: QRConfig = {
   type: 'qr',
 
   options: {
@@ -30,15 +30,15 @@ export const defaults: QrxConfig = {
   },
 }
 // eslint-disable-next-line import/no-mutable-exports
-export let config: QrxConfig = defaults
+export let config: QRConfig = defaults
   ; (async () => {
   config = await loadConfig({
-    name: 'qrx',
+    name: 'qr',
     defaultConfig: defaults,
   })
 })()
 
-// export const config: QrxConfig = await loadConfig({
+// export const config: QRConfig = await loadConfig({
 //   name: 'qrx',
 //   defaultConfig: defaults,
 // })

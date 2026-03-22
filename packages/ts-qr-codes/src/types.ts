@@ -1,4 +1,4 @@
-export interface QrxConfig {
+export interface QRConfig {
   type: 'bar' | 'qr'
   options: BarcodeConfig | QRCodeConfig
 }

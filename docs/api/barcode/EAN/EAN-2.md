@@ -5,7 +5,7 @@ EAN-2 is a supplemental two-digit barcode typically used for periodical publicat
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '53', { format: 'EAN2' })
 ```
@@ -24,7 +24,7 @@ An EAN-2 barcode consists of:
 ## Usage with Main Barcode
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode')
   .EAN13('9771234567003')
@@ -42,7 +42,7 @@ barcode('#barcode')
 ## Customization Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '53', {
   format: 'EAN2',
@@ -99,7 +99,7 @@ barcode('#barcode', '53', {
 ## Error Handling
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '53', {
   format: 'EAN2',

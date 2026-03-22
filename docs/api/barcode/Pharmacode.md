@@ -5,7 +5,7 @@ Pharmacode is a barcode used in the pharmaceutical industry. It can encode numbe
 ## Example
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', {
   format: 'pharmacode',
