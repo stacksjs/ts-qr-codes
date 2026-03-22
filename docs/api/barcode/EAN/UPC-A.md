@@ -5,7 +5,7 @@ UPC-A (Universal Product Code) is the standard barcode format for retail product
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789012', { format: 'UPC' })
 ```
@@ -26,7 +26,7 @@ A UPC-A barcode consists of:
 The check digit is automatically calculated if omitted:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 // These generate the same barcode
 barcode('#barcode', '12345678901', { format: 'UPC' }) // Auto-calculates check digit
@@ -38,7 +38,7 @@ barcode('#barcode', '123456789012', { format: 'UPC' }) // Manual check digit
 Remove guard bars for special applications:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789012', {
   format: 'UPC',
@@ -51,7 +51,7 @@ barcode('#barcode', '123456789012', {
 ## Advanced Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789012', {
   format: 'UPC',
@@ -71,7 +71,7 @@ barcode('#barcode', '123456789012', {
 The standard way of printing UPC-A with guard bars:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789012', {
   format: 'UPC',
@@ -86,7 +86,7 @@ barcode('#barcode', '123456789012', {
 Combine with EAN-2 or EAN-5 supplemental barcodes:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode')
   .UPC('123456789012')
@@ -126,7 +126,7 @@ barcode('#barcode', '212345678912', { format: 'UPC' })
 ## Error Handling
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789012', {
   format: 'UPC',

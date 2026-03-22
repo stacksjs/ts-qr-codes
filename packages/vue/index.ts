@@ -1,6 +1,7 @@
-import type { BarcodeOptions, QRCodeOptions } from '@stacksjs/qrx'
-import { barcode, QRCode, QRErrorCorrectLevel } from '@stacksjs/qrx'
-import { defineComponent, h, onMounted, ref, watch } from 'vue'
+import type { BarcodeOptions } from 'ts-qr-codes'
+import type { Component, PropType } from 'vue'
+import { barcode } from 'ts-qr-codes'
+import { defineComponent, h } from 'vue'
 
 export const VueBarcode = defineComponent({
   name: 'VueBarcode',

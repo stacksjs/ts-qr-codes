@@ -5,7 +5,7 @@ MSI _(Modified Plessey)_ is a specialized barcode format developed by the MSI Da
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789', {
   format: 'MSI'
@@ -40,7 +40,7 @@ barcode('#barcode', '1234', { format: 'MSI1110' }) // Result: 123430
 ## Customization Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789', {
   format: 'MSI',
@@ -79,7 +79,7 @@ barcode('#barcode', '123456789', {
 ## Error Handling
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789', {
   format: 'MSI',

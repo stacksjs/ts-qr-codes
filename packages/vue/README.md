@@ -182,7 +182,7 @@ data will be filled with a ``` encodings ``` property which has all the needed v
 #### With canvas
 
 ```ts
-import { Barcode } from '@stacksjs/qrx'
+import { Barcode } from 'ts-qr-codes'
 import { createCanvas } from 'canvas'
 
 const canvas = createCanvas()

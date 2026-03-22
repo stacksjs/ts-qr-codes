@@ -36,7 +36,7 @@ Select which [barcode type](https://ts-quick-reaction.netlify.app/barcodes) to u
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '123456789012', {
   format: 'EAN13'
@@ -61,7 +61,7 @@ The width option is the width of a single bar.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Smallest width', {
   width: 1
@@ -86,7 +86,7 @@ The height of the barcode.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Tall barcode', {
   height: 150
@@ -111,7 +111,7 @@ Override the text that is displayed
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Hello', {
   text: 'Hi!'
@@ -131,7 +131,7 @@ With `fontOptions` you can add bold or italic text to the barcode.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Bold text', {
   fontOptions: 'bold'
@@ -161,7 +161,7 @@ Define the font used for the text in the generated barcode. This can be any defa
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Fantasy font', {
   font: 'fantasy'
@@ -181,7 +181,7 @@ Set the horizontal alignment of the text. Can be left / center / right.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Left text', {
   textAlign: 'left'
@@ -219,7 +219,7 @@ Set the space between the barcode and the text.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Text margin', {
   textMargin: 25
@@ -239,7 +239,7 @@ Set the size of the text.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Bigger text', {
   fontSize: 40
@@ -259,7 +259,7 @@ Set the background of the barcode.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Blue background', {
   background: '#ccffff'
@@ -279,7 +279,7 @@ Set the color of the bars and the text.
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Red lines', {
   lineColor: '#990000'
@@ -299,7 +299,7 @@ Set the space margin around the barcode. If nothing else is set, all side will i
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', 'Bigger margins', {
   margin: 30,
@@ -327,7 +327,7 @@ Only for EAN8/EAN13
 ***Examples***
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '29012343', {
   format: 'EAN8',

@@ -10,7 +10,7 @@ The simplest way to generate a QR code:
 <div id="qr-code"></div>
 
 <script type="text/javascript">
-import { QRCode } from '@stacksjs/qrx'
+import { QRCode } from 'ts-qr-codes'
 
 new QRCode(document.getElementById("qr-code"), "https://stacksjs.org")
 </script>
@@ -23,7 +23,7 @@ new QRCode(document.getElementById("qr-code"), "https://stacksjs.org")
 Customize the QR code appearance and behavior with options:
 
 ```ts
-import { QRCode } from '@stacksjs/qrx'
+import { QRCode } from 'ts-qr-codes'
 
 const options = {
   // Size Options
@@ -50,7 +50,7 @@ const qrCode = new QRCode(document.getElementById('qr-code'), options)
 QR codes support four levels of error correction:
 
 ```ts
-import { QRCode, QRErrorCorrectLevel } from '@stacksjs/qrx'
+import { QRCode, QRErrorCorrectLevel } from 'ts-qr-codes'
 
 // Low - 7% recovery capacity
 new QRCode(element, {

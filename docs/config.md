@@ -4,11 +4,11 @@
 
 ```ts
 // qrx.config.{ts,js}
-import type { QrxConfig } from '@stacksjs/qrx'
+import type { QRConfig } from 'ts-qr-codes'
 import os from 'node:os'
 import path from 'node:path'
 
-const config: QrxConfig = {
+const config: QRConfig = {
   /**
    * The type of the QR code.
    */

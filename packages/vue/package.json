@@ -54,7 +54,7 @@
     "typecheck": "bun --bun tsc --noEmit"
   },
   "dependencies": {
-    "@stacksjs/qrx": "workspace:*"
+    "ts-qr-codes": "workspace:*"
   },
   "peerDependencies": {
     "vue": "^3.5.0"

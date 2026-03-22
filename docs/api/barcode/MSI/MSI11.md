@@ -5,7 +5,7 @@ MSI11 is the MSI variant that uses a single Mod 11 check digit for error detecti
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', { format: 'MSI11' }) // Result: 12343
 ```
@@ -35,7 +35,7 @@ Result: 12343
 ## Advanced Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', {
   format: 'MSI11',
@@ -55,7 +55,7 @@ barcode('#barcode', '1234', {
 ## Error Detection
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', {
   format: 'MSI11',

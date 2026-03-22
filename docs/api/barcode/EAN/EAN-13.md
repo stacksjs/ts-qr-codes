@@ -5,7 +5,7 @@ EAN-13 _(European Article Number)_ is the most widely used retail barcode format
 ## Basic Usage
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '5901234123457', { format: 'EAN13' })
 ```
@@ -26,7 +26,7 @@ An EAN-13 barcode consists of:
 The check digit is automatically calculated if omitted:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 // These generate the same barcode
 barcode('#barcode', '590123412345', { format: 'EAN13' }) // Auto-calculates check digit
@@ -36,7 +36,7 @@ barcode('#barcode', '5901234123457', { format: 'EAN13' }) // Manual check digit
 ## Advanced Options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '5901234123457', {
   format: 'EAN13',
@@ -56,7 +56,7 @@ barcode('#barcode', '5901234123457', {
 Remove guard bars for special applications:
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '5901234123457', {
   format: 'EAN13',
@@ -71,7 +71,7 @@ barcode('#barcode', '5901234123457', {
 Add a character after the barcode (commonly '>')
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '5901234123457', {
   format: 'EAN13',
@@ -85,7 +85,7 @@ barcode('#barcode', '5901234123457', {
 
 Combine with EAN-2 or EAN-5 supplemental barcodes:
 
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 ```ts
 barcode('#barcode')
@@ -117,7 +117,7 @@ barcode('#barcode')
 ## Error Handling
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '5901234123457', {
   format: 'EAN13',

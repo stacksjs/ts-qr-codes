@@ -134,7 +134,7 @@ barcode('#barcode', 'Hi!')
 #### Example with options
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '1234', {
   format: 'pharmacode',
@@ -150,7 +150,7 @@ barcode('#barcode', '1234', {
 #### More advanced use case
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode')
   .options({ font: 'OCR-B' }) // Will affect all barcodes
@@ -202,7 +202,7 @@ data will be filled with a ``` encodings ``` property which has all the needed v
 #### With canvas
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 import { createCanvas } from 'canvas'
 
 const canvas = createCanvas()
@@ -307,8 +307,8 @@ The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 Made with 💙
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@stacksjs/qrx?style=flat-square
-[npm-version-href]: https://npmjs.com/package/@stacksjs/qrx
+[npm-version-src]: https://img.shields.io/npm/v/ts-qr-codes?style=flat-square
+[npm-version-href]: https://npmjs.com/package/ts-qr-codes
 [github-actions-src]: https://img.shields.io/github/actions/workflow/status/stacksjs/qrx/ci.yml?style=flat-square&branch=main
 [github-actions-href]: https://github.com/stacksjs/qrx/actions?query=workflow%3Aci
 

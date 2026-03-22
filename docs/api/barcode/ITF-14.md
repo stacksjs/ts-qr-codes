@@ -7,7 +7,7 @@ The last digit of an ITF-14 barcode is an checksum. It is normally included but 
 ## Example
 
 ```ts
-import { barcode } from '@stacksjs/qrx'
+import { barcode } from 'ts-qr-codes'
 
 barcode('#barcode', '12345678901231', {
   format: 'ITF14'
