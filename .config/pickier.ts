@@ -18,7 +18,7 @@ const config: PickierConfig = {
   ],
 
   lint: {
-    extensions: ['ts', 'js', 'json', 'yaml'],
+    extensions: ['ts', 'js', 'json', 'yaml', 'md'],
     reporter: 'stylish',
     cache: false,
     maxWarnings: -1,
