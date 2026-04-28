@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import { QRErrorCorrectLevel } from '../packages/qrx/src'
+import { QRErrorCorrectLevel } from '../packages/ts-qr-codes/src'
 
 describe('qrx', () => {
   it('should export QRErrorCorrectLevel', () => {
