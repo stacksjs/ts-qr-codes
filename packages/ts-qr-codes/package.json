@@ -75,12 +75,12 @@
   "dependencies": {
     "get-pixels": "^3.3.3",
     "gl-matrix": "^3.4.4",
-    "lodash": "^4.17.23",
+    "lodash": "^4.18.1",
     "ndarray": "^1.0.19",
     "ndarray-linear-interpolate": "^1.0.0"
   },
   "devDependencies": {
-    "bunfig": "^0.15.6"
+    "bunfig": "^0.15.8"
   },
   "lint-staged": {
     "*.{js,ts}": "bunx --bun eslint --flag unstable_ts_config . --fix"
