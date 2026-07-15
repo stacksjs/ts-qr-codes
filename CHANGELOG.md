@@ -1,3 +1,65 @@
+[Compare changes](https://github.com/stacksjs/qrx/compare/v0.1.1...v0.1.2)
+
+## 🐛 Bug Fixes
+
+- **qr**: keep the browser build free of node builtins ([e9471a6](https://github.com/stacksjs/qrx/commit/e9471a6)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **scripts**: stop double-generating CHANGELOG on release ([1525789](https://github.com/stacksjs/qrx/commit/1525789)) _(by Glenn Michael Torregosa <gtorregosa@gmail.com>)_
+- correct import path in qrx test ([11ef3eb](https://github.com/stacksjs/qrx/commit/11ef3eb)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- resolve typecheck errors ([c2fe9aa](https://github.com/stacksjs/qrx/commit/c2fe9aa)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## ♻️ Code Refactoring
+
+- **cli**: swap cac for @stacksjs/clapp ([adc4348](https://github.com/stacksjs/qrx/commit/adc4348)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.1.2 ([60ecae8](https://github.com/stacksjs/qrx/commit/60ecae8)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.37 ([b4b583a](https://github.com/stacksjs/qrx/commit/b4b583a)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.35 ([04768b9](https://github.com/stacksjs/qrx/commit/04768b9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.33 ([0f30f58](https://github.com/stacksjs/qrx/commit/0f30f58)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up @stacksjs/logsmith 0.2.3 ([c07a245](https://github.com/stacksjs/qrx/commit/c07a245)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up buddy-bot 0.9.20 ([df2b247](https://github.com/stacksjs/qrx/commit/df2b247)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: bump better-dx to ^0.2.15 ([fd9f03d](https://github.com/stacksjs/qrx/commit/fd9f03d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- switch lint scripts from eslint to pickier ([f0d25c0](https://github.com/stacksjs/qrx/commit/f0d25c0)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock to pick up bun-plugin-dtsx@0.9.18 ([cbd4fd0](https://github.com/stacksjs/qrx/commit/cbd4fd0)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock and apply pickier --fix ([996bb56](https://github.com/stacksjs/qrx/commit/996bb56)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock ([2957f05](https://github.com/stacksjs/qrx/commit/2957f05)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock to pick up latest pickier ([40e76e8](https://github.com/stacksjs/qrx/commit/40e76e8)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- fresh install to pick up dtsx 0.9.14 and bunfig 0.15.9 ([ee416b9](https://github.com/stacksjs/qrx/commit/ee416b9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- fresh install to pick up pickier 0.1.21 ([13aa49c](https://github.com/stacksjs/qrx/commit/13aa49c)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- gitignore pantry directory ([87ace5c](https://github.com/stacksjs/qrx/commit/87ace5c)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- include md in pickier lint extensions ([e2f338d](https://github.com/stacksjs/qrx/commit/e2f338d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- repo cleanup and modernization ([e6ef505](https://github.com/stacksjs/qrx/commit/e6ef505)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- add git-hooks config ([a44c726](https://github.com/stacksjs/qrx/commit/a44c726)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- remove .zed and .cursor folders ([1e655fe](https://github.com/stacksjs/qrx/commit/1e655fe)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- remove redundant docs/.vitepress ([b4f37f1](https://github.com/stacksjs/qrx/commit/b4f37f1)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([8a00830](https://github.com/stacksjs/qrx/commit/8a00830)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update better-dx to ^0.2.7 ([f68cea8](https://github.com/stacksjs/qrx/commit/f68cea8)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- enrich CLAUDE.md with detailed project context from README ([29d9018](https://github.com/stacksjs/qrx/commit/29d9018)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- update CLAUDE.md with project context and crosswind details ([4be07e6](https://github.com/stacksjs/qrx/commit/4be07e6)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- add proper claude code guidelines ([093ce1e](https://github.com/stacksjs/qrx/commit/093ce1e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- use pantry monorepo action instead of pantry-setup ([fa29311](https://github.com/stacksjs/qrx/commit/fa29311)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([84ab258](https://github.com/stacksjs/qrx/commit/84ab258)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([ceaa106](https://github.com/stacksjs/qrx/commit/ceaa106)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([64e8f58](https://github.com/stacksjs/qrx/commit/64e8f58)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([46d777e](https://github.com/stacksjs/qrx/commit/46d777e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([266ba70](https://github.com/stacksjs/qrx/commit/266ba70)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([2f93f81](https://github.com/stacksjs/qrx/commit/2f93f81)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([c186f73](https://github.com/stacksjs/qrx/commit/c186f73)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([7763b95](https://github.com/stacksjs/qrx/commit/7763b95)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([d729766](https://github.com/stacksjs/qrx/commit/d729766)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([d2b9433](https://github.com/stacksjs/qrx/commit/d2b9433)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([4dceec6](https://github.com/stacksjs/qrx/commit/4dceec6)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([d06f964](https://github.com/stacksjs/qrx/commit/d06f964)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([f1eeed9](https://github.com/stacksjs/qrx/commit/f1eeed9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([66152b5](https://github.com/stacksjs/qrx/commit/66152b5)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+- _Glenn Michael Torregosa <gtorregosa@gmail.com>_
+- _glennmichael123 <gtorregosa@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.0...v0.1.1)
 
 ### 📚 Documentation
