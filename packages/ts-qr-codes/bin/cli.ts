@@ -1,3 +1,4 @@
+#!/usr/bin/env bun
 import { CLI as CAC } from '@stacksjs/clapp'
 import { version } from '../package.json'
 // import { config } from '../src/config'

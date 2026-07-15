@@ -1,5 +1,4 @@
 import type { QRConfig } from './types'
-import { loadConfig } from 'bunfig'
 
 export const defaults: QRConfig = {
   type: 'qr',
@@ -29,16 +28,13 @@ export const defaults: QRConfig = {
     elementTag: 'svg',
   },
 }
-// eslint-disable-next-line import/no-mutable-exports
-export let config: QRConfig = defaults
-  ; (async () => {
-  config = await loadConfig({
-    name: 'qr',
-    defaultConfig: defaults,
-  })
-})()
-
-// export const config: QRConfig = await loadConfig({
-//   name: 'qrx',
-//   defaultConfig: defaults,
-// })
+/**
+ * The active config.
+ *
+ * This module is part of the browser build, so it resolves to `defaults`.
+ * Reading a `qr.config.ts` file is a filesystem concern — importing bunfig
+ * here pulled node builtins (`stream/promises`) into the browser bundle and
+ * broke the build. Load file config explicitly with `loadQRConfig()` from
+ * `./config-loader` (Bun/node only).
+ */
+export const config: QRConfig = defaults
