@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -23,7 +23,7 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: Setup Pantry
-        uses: home-lang/pantry/packages/action@main
+        uses: home-lang/pantry/packages/action@v0.11.15
 
       - name: Install Dependencies
         run: bun install
@@ -34,7 +34,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create GitHub Release
-        uses: stacksjs/action-releaser@v1.2.9
+        uses: stacksjs/action-releaser@v1.2.11
         with:
           files: |
             packages/qrx/bin/qrx-linux-x64
