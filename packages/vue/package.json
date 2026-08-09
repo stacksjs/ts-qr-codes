@@ -2,7 +2,7 @@
   "name": "vue-qrx",
   "type": "module",
   "sideEffects": false,
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "QR & Bar Code generating & reading. Vue components.",
   "author": "Chris Breuer <chris@stacksjs.org>",
   "license": "MIT",
