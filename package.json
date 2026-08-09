@@ -64,7 +64,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "bun --bun build.ts && bun run compile",
+    "build": "bun run --filter ts-qr-codes build && bun run --filter react-qrx build",
     "fresh": "bunx rimraf node_modules/ bun.lock && bun i",
     "test": "bun test test/qrx.test.ts",
     "lint": "bunx --bun pickier .",
@@ -77,7 +77,10 @@
     "dev:docs": "bun --bun vitepress dev docs",
     "build:docs": "bun --bun vitepress build docs",
     "preview:docs": "bun --bun vitepress preview docs",
-    "typecheck": "bun --bun tsc --noEmit"
+    "typecheck": "bun --bun tsc --noEmit",
+    "release:patch": "bunx --bun bumpx patch --recursive --commit --tag --push --yes",
+    "release:minor": "bunx --bun bumpx minor --recursive --commit --tag --push --yes",
+    "release:major": "bunx --bun bumpx major --recursive --commit --tag --push --yes"
   },
   "devDependencies": {
     "@stacksjs/bunpress": "^0.1.4",

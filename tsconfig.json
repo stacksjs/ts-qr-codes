@@ -6,7 +6,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
-      "@stacksjs/qrx": ["./packages/qrx/src/index.ts"]
+      "ts-qr-codes": ["./packages/ts-qr-codes/src/index.ts"]
     },
     "resolveJsonModule": true,
     "types": ["bun"],

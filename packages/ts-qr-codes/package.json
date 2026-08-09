@@ -1,7 +1,6 @@
 {
   "name": "ts-qr-codes",
   "type": "module",
-  "private": true,
   "version": "0.1.2",
   "description": "QR & Bar Code generating & reading. Lightweight & powerful.",
   "author": "Chris Breuer <chris@stacksjs.org>",

@@ -1,5 +1,5 @@
-import type { BarcodeOptions } from '@stacksjs/qrx'
-import { barcode } from '@stacksjs/qrx'
+import type { BarcodeOptions } from 'ts-qr-codes'
+import { barcode } from 'ts-qr-codes'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface BarcodeProps {
