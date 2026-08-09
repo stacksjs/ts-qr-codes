@@ -1,3 +1,23 @@
+[Compare changes](https://github.com/stacksjs/qrx/compare/v0.1.2...v0.1.3)
+
+## 🐛 Bug Fixes
+
+- **build**: make the packages publishable, and make what they publish work ([3eadc74](https://github.com/stacksjs/qrx/commit/3eadc74)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **qr**: draw the finder patterns correctly, and stop capping at version 5 ([fee02e4](https://github.com/stacksjs/qrx/commit/fee02e4)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 📚 Documentation
+
+- link the community as stacksjs.com/discord ([f4ccf8b](https://github.com/stacksjs/qrx/commit/f4ccf8b)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.1.3 ([16e4b6e](https://github.com/stacksjs/qrx/commit/16e4b6e)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: declare bun ^1.3.14 in deps.yaml ([fe82e08](https://github.com/stacksjs/qrx/commit/fe82e08)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/qrx/compare/v0.1.1...v0.1.2)
 
 ## 🐛 Bug Fixes
