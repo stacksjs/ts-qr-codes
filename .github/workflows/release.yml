@@ -37,10 +37,10 @@ jobs:
         uses: stacksjs/action-releaser@v1.2.9
         with:
           files: |
-            packages/qrx/bin/qrx-linux-x64
-            packages/qrx/bin/qrx-linux-arm64
-            packages/qrx/bin/qrx-windows-x64.exe
-            packages/qrx/bin/qrx-darwin-x64
-            packages/qrx/bin/qrx-darwin-arm64
+            packages/ts-qr-codes/bin/qrx-linux-x64
+            packages/ts-qr-codes/bin/qrx-linux-arm64
+            packages/ts-qr-codes/bin/qrx-windows-x64.exe
+            packages/ts-qr-codes/bin/qrx-darwin-x64
+            packages/ts-qr-codes/bin/qrx-darwin-arm64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

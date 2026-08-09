@@ -1,5 +1,5 @@
-import type { QRCodeOptions } from '@stacksjs/qrx'
-import { QRCode as QRCodeGenerator, QRErrorCorrectLevel } from '@stacksjs/qrx'
+import type { QRCodeOptions } from 'ts-qr-codes'
+import { QRCode as QRCodeGenerator, QRErrorCorrectLevel } from 'ts-qr-codes'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 export interface QRCodeProps {

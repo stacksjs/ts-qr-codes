@@ -1,7 +1,6 @@
 {
   "name": "react-qrx",
   "type": "module",
-  "sideEffects": false,
   "version": "0.1.2",
   "description": "QR & Bar Code generating & reading. React components.",
   "author": "Chris Breuer <chris@stacksjs.org>",
@@ -48,7 +47,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "echo 'coming soon'",
+    "build": "bun --bun build.ts",
     "release": "bun publish --access public",
     "prepublishOnly": "bun --bun run build",
     "test": "bun test",
