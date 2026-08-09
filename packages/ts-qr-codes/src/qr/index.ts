@@ -904,26 +904,20 @@ class QRCodeModel {
       for (let c = -1; c <= 7; c++) {
         if (col + c <= -1 || this.moduleCount <= col + c)
           continue
-        if (
+        if (!this.modules) {
+          throw new Error('Modules array is null')
+        }
+
+        // The finder pattern is a 7x7 ring with a 3x3 centre, surrounded by a
+        // one-module separator. Both branches of this used to assign `true`,
+        // which filled the whole 8x8 region solid -- no ring, no separator --
+        // and a scanner that cannot find three finder patterns cannot read the
+        // code at all. Every renderer in this package drew that.
+        this.modules[row + r][col + c] = (
           (r >= 0 && r <= 6 && (c === 0 || c === 6))
           || (c >= 0 && c <= 6 && (r === 0 || r === 6))
           || (r >= 2 && r <= 4 && c >= 2 && c <= 4)
-        ) {
-          if (this.modules) {
-            this.modules[row + r][col + c] = true
-          }
-          else {
-            throw new Error('Modules array is null')
-          }
-        }
-        else {
-          if (this.modules) {
-            this.modules[row + r][col + c] = true
-          }
-          else {
-            throw new Error('Modules array is null')
-          }
-        }
+        )
       }
     }
   }
@@ -1202,12 +1196,54 @@ class QRCodeModel {
  * Pre-calculated length limitations for each version (1-40) at each error level.
  */
 const QRCodeLimitLength: number[][] = [
+  // Byte-mode capacity per version, at L, M, Q and H.
+  //
+  // This table had been truncated to five rows with a "truncated for brevity"
+  // comment in place of the rest, which capped the whole library at version 5:
+  // anything over 106 characters threw `Too long data`. Nothing else was
+  // limited -- the Reed-Solomon block table has all 160 of its rows and the
+  // alignment positions all 40 -- so versions 6 to 40 were encodable the whole
+  // time and only this list said otherwise.
   [17, 14, 11, 7],
   [32, 26, 20, 14],
   [53, 42, 32, 24],
   [78, 62, 46, 34],
   [106, 84, 60, 44],
-  // ... truncated for brevity ...
+  [134, 106, 74, 58],
+  [154, 122, 86, 64],
+  [192, 152, 108, 84],
+  [230, 180, 130, 98],
+  [271, 213, 151, 119],
+  [321, 251, 177, 137],
+  [367, 287, 203, 155],
+  [425, 331, 241, 177],
+  [458, 362, 258, 194],
+  [520, 412, 292, 220],
+  [586, 450, 322, 250],
+  [644, 504, 364, 280],
+  [718, 560, 394, 310],
+  [792, 624, 442, 338],
+  [858, 666, 482, 382],
+  [929, 711, 509, 403],
+  [1003, 779, 565, 439],
+  [1091, 857, 611, 461],
+  [1171, 911, 661, 511],
+  [1273, 997, 715, 535],
+  [1367, 1059, 751, 593],
+  [1465, 1125, 805, 625],
+  [1528, 1190, 868, 658],
+  [1628, 1264, 908, 698],
+  [1732, 1370, 982, 742],
+  [1840, 1452, 1030, 790],
+  [1952, 1538, 1112, 842],
+  [2068, 1628, 1168, 898],
+  [2188, 1722, 1228, 958],
+  [2303, 1809, 1283, 983],
+  [2431, 1911, 1351, 1051],
+  [2563, 2013, 1423, 1093],
+  [2699, 2099, 1499, 1139],
+  [2809, 2213, 1579, 1219],
+  [2953, 2331, 1663, 1273],
 ]
 
 /**
@@ -1622,3 +1658,95 @@ export class QRCode {
  * Also expose the correct level enumeration for convenience.
  */
 export const QRCodeCorrectLevel: typeof QRErrorCorrectLevel = QRErrorCorrectLevel
+
+/**
+ * The encoder, without a DOM.
+ *
+ * `QRCode` needs an element to draw into, which makes the encoder unreachable
+ * anywhere there is no document — a server rendering an SVG, a CLI printing to
+ * a terminal, a test asserting on modules rather than pixels. The model behind
+ * it never needed one; it was simply not exported.
+ */
+export { QRCodeModel }
+
+/** Pick the smallest version that fits the text at this correction level. */
+export { getTypeNumber }
+
+/**
+ * Encode text to its module matrix: `true` is a dark module.
+ *
+ * The matrix is the honest output of a QR encoder — every renderer here (canvas,
+ * SVG, table, terminal) is a way of drawing it, and anything else can draw it
+ * too.
+ */
+export function toMatrix(
+  text: string,
+  correctLevel: QRErrorCorrectLevel = QRErrorCorrectLevel.M,
+): boolean[][] {
+  const model = new QRCodeModel(getTypeNumber(text, correctLevel), correctLevel)
+  model.addData(text)
+  model.make()
+
+  const size = model.getModuleCount()
+  const matrix: boolean[][] = []
+  for (let row = 0; row < size; row++) {
+    const line: boolean[] = []
+    for (let col = 0; col < size; col++) line.push(model.isDark(row, col))
+    matrix.push(line)
+  }
+  return matrix
+}
+
+export interface TerminalOptions {
+  correctLevel?: QRErrorCorrectLevel
+  /**
+   * Modules of light border around the code. Four is the specification's
+   * minimum and not decoration: without it, scanners fail to find the code
+   * against whatever is next to it in the terminal.
+   */
+  margin?: number
+}
+
+/**
+ * Render to text a terminal can display and a phone camera can read.
+ *
+ * Two module rows per line, using half blocks, because one line per row makes
+ * anything past the smallest version taller than the window it is printed in.
+ *
+ * Colours are set explicitly rather than inherited: a QR code must be dark on
+ * light, and a terminal with a dark theme would otherwise render it inverted —
+ * which most scanners refuse. With white on black selected, `▀` is a light
+ * module above a dark one, and the four combinations fall out from there.
+ */
+export function toTerminal(text: string, options: TerminalOptions = {}): string {
+  const margin = options.margin ?? 4
+  const matrix = toMatrix(text, options.correctLevel ?? QRErrorCorrectLevel.M)
+
+  const size = matrix.length
+  const padded = size + margin * 2
+  // `true` here means light, which is the opposite of the matrix — a border is
+  // easier to reason about as "the quiet part".
+  const light = (row: number, col: number): boolean => {
+    const r = row - margin
+    const c = col - margin
+    if (r < 0 || c < 0 || r >= size || c >= size) return true
+    return !matrix[r][c]
+  }
+
+  const lines: string[] = []
+  for (let row = 0; row < padded; row += 2) {
+    let line = '\x1B[37;40m'
+    for (let col = 0; col < padded; col++) {
+      const top = light(row, col)
+      // An odd number of rows leaves the last line half empty; the missing row
+      // is quiet zone, so it is light.
+      const bottom = row + 1 < padded ? light(row + 1, col) : true
+      if (top && bottom) line += '█'
+      else if (top) line += '▀'
+      else if (bottom) line += '▄'
+      else line += ' '
+    }
+    lines.push(`${line}\x1B[0m`)
+  }
+  return lines.join('\n')
+}
