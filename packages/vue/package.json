@@ -6,13 +6,13 @@
   "description": "QR & Bar Code generating & reading. Vue components.",
   "author": "Chris Breuer <chris@stacksjs.org>",
   "license": "MIT",
-  "homepage": "https://github.com/stacksjs/qrx/tree/main/packages/vue#readme",
+  "homepage": "https://github.com/stacksjs/ts-qr-codes#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stacksjs/qrx.git"
+    "url": "git+https://github.com/stacksjs/ts-qr-codes.git"
   },
   "bugs": {
-    "url": "https://github.com/stacksjs/qrx/issues"
+    "url": "https://github.com/stacksjs/ts-qr-codes/issues"
   },
   "keywords": [
     "typescript",
