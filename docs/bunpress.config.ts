@@ -1,7 +1,7 @@
-import type { BunPressConfig } from 'bunpress'
+import type { BunPressConfig } from '@stacksjs/bunpress'
 
 const config: BunPressConfig = {
-  name: 'qrx',
+  title: 'qrx',
   description: 'A QR & Barcode Library and CLI for Node.js, Bun, and Browser',
   url: 'https://qrx.sh',
 
