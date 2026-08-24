@@ -1,3 +1,18 @@
+[Compare changes](https://github.com/stacksjs/qrx/compare/v0.1.3...v0.1.4)
+
+## 🐛 Bug Fixes
+
+- **ci**: setup-php 2.37.1, which closes the open advisory ([06028bf](https://github.com/stacksjs/qrx/commit/06028bf)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.1.4 ([e959f05](https://github.com/stacksjs/qrx/commit/e959f05)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **docs**: move to @stacksjs/bunpress 0.2 ([295cd46](https://github.com/stacksjs/qrx/commit/295cd46)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/qrx/compare/v0.1.2...v0.1.3)
 
 ## 🐛 Bug Fixes
