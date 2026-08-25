@@ -1,3 +1,17 @@
+[Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.4...v0.1.5)
+
+## 🐛 Bug Fixes
+
+- **release**: point every manifest at the renamed repository ([35f90fc](https://github.com/stacksjs/ts-qr-codes/commit/35f90fc)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.1.5 ([ecbf923](https://github.com/stacksjs/ts-qr-codes/commit/ecbf923)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/qrx/compare/v0.1.3...v0.1.4)
 
 ## 🐛 Bug Fixes
