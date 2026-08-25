@@ -1,3 +1,13 @@
+[Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.5...v0.1.6)
+
+## 🧹 Chores
+
+- release v0.1.6 ([e286a33](https://github.com/stacksjs/ts-qr-codes/commit/e286a33)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.4...v0.1.5)
 
 ## 🐛 Bug Fixes
