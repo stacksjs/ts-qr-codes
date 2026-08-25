@@ -1,1 +1,4 @@
 bin/qrx
+# compile:all writes one ~60-95MB binary per target here; the release
+# workflow builds them fresh and attaches them to the GitHub Release.
+bin/qrx-*
