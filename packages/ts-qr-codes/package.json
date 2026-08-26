@@ -71,15 +71,13 @@
     "test": "bun test",
     "typecheck": "bun --bun tsc --noEmit"
   },
-  "dependencies": {
+  "devDependencies": {
+    "bunfig": "^0.15.6",
     "get-pixels": "^3.3.3",
     "gl-matrix": "^3.4.4",
     "lodash": "^4.17.23",
     "ndarray": "^1.0.19",
     "ndarray-linear-interpolate": "^1.0.0"
-  },
-  "devDependencies": {
-    "bunfig": "^0.15.6"
   },
   "lint-staged": {
     "*.{js,ts}": "bunx --bun pickier . --fix"

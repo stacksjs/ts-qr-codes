@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'bun:test'
-import { QRErrorCorrectLevel, toMatrix, toTerminal } from '../packages/ts-qr-codes/src'
+import { QRErrorCorrectLevel, toMatrix, toSvg, toTerminal } from '../packages/ts-qr-codes/src'
 
 describe('qrx', () => {
   it('should export QRErrorCorrectLevel', () => {
@@ -114,5 +114,70 @@ describe('rendering to a terminal', () => {
     const matrix = toMatrix('HELLO')
     const lines = toTerminal('HELLO', { margin: 4 }).split('\n')
     expect(lines.length).toBe(Math.ceil((matrix.length + 8) / 2))
+  })
+})
+
+/**
+ * The renderer most uses of a QR code actually want — a membership card, an
+ * email, a server-rendered page — and the one the library did not have. Anyone
+ * needing it was encoding the matrix and writing the markup by hand, or
+ * installing a second QR library beside this one to do it.
+ */
+describe('toSvg', () => {
+  const modules = (svg: string): number => Number(svg.match(/viewBox="0 0 (\d+)/)![1])
+
+  it('sizes the viewBox in modules, quiet zone included', () => {
+    const svg = toSvg('HELLO', { margin: 4 })
+    expect(modules(svg)).toBe(toMatrix('HELLO').length + 8)
+  })
+
+  it('defaults to the four-module quiet zone the specification asks for', () => {
+    expect(modules(toSvg('HELLO'))).toBe(toMatrix('HELLO').length + 8)
+  })
+
+  it('honours an explicit pixel size', () => {
+    expect(toSvg('HELLO', { size: 360 })).toContain('width="360" height="360"')
+  })
+
+  it('scales by module when no size is given', () => {
+    const svg = toSvg('HELLO', { scale: 8 })
+    expect(svg).toContain(`width="${modules(svg) * 8}"`)
+  })
+
+  it('draws the dark modules as one path rather than a rect each', () => {
+    const svg = toSvg('https://example.com/a-reasonably-long-url-to-encode')
+    expect(svg.match(/<path/g)!.length).toBe(1)
+    // A rect-per-module renderer emits hundreds of elements for the same code.
+    expect(svg.match(/<rect/g)!.length).toBe(1)
+  })
+
+  it('omits the backdrop when the background is cleared', () => {
+    expect(toSvg('HELLO', { background: null })).not.toContain('<rect')
+    expect(toSvg('HELLO', { background: 'transparent' })).not.toContain('<rect')
+  })
+
+  /**
+   * A code with no accessible name is decoration next to content that already
+   * says the same thing; one with a name is an image. Neither should be an
+   * unlabelled graphic that a screen reader announces as "image".
+   */
+  it('is hidden from assistive technology unless it is given a name', () => {
+    expect(toSvg('HELLO')).toContain('aria-hidden="true"')
+    const named = toSvg('HELLO', { title: 'Membership card' })
+    expect(named).toContain('aria-label="Membership card"')
+    expect(named).toContain('<title>Membership card</title>')
+    expect(named).not.toContain('aria-hidden')
+  })
+
+  it('escapes markup in the colours and the title', () => {
+    const svg = toSvg('HELLO', { title: '<script>&"', color: '"/><script>' })
+    expect(svg).not.toContain('<script>')
+    expect(svg).toContain('&lt;script&gt;')
+  })
+
+  it('encodes the same modules it renders', () => {
+    // The path is built from the matrix, so a code whose matrix grows must
+    // produce a viewBox that grows with it.
+    expect(modules(toSvg('x'.repeat(200)))).toBeGreaterThan(modules(toSvg('x')))
   })
 })
