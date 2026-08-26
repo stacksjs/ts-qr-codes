@@ -1,3 +1,21 @@
+[Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.6...v0.1.7)
+
+## 🚀 Features
+
+- **qr**: render to SVG without a DOM, and stop shipping five unused deps ([1c597c2](https://github.com/stacksjs/ts-qr-codes/commit/1c597c2)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🐛 Bug Fixes
+
+- **git**: stop tracking the cross-compiled CLI binaries ([018c759](https://github.com/stacksjs/ts-qr-codes/commit/018c759)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.1.7 ([cc34066](https://github.com/stacksjs/ts-qr-codes/commit/cc34066)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## Contributors
+
+- _Chris <chrisbreuer93@gmail.com>_
+
 [Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.5...v0.1.6)
 
 ## 🧹 Chores

@@ -1,7 +1,7 @@
 {
   "name": "react-qrx",
   "type": "module",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "QR & Bar Code generating & reading. React components.",
   "author": "Chris Breuer <chris@stacksjs.org>",
   "license": "MIT",
