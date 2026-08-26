@@ -1781,6 +1781,46 @@ export interface SvgOptions {
    * code whose content is also on the page as text.
    */
   title?: string
+  /**
+   * A mark to place at the centre — the usual way a QR code is branded.
+   *
+   * The modules it covers are erased rather than drawn over, so nothing shows
+   * through a mark with transparent areas, and a quiet backing is painted
+   * behind it so the mark reads against the code.
+   *
+   * A logo destroys data. That is fine only because the format is redundant:
+   * error correction reconstructs what the mark hides, so {@link toSvg} raises
+   * the correction level to `H` (recovers ~30%) whenever a logo is present and
+   * the caller has not asked for something higher. Keep `size` at or below the
+   * default 0.22 — past roughly a quarter of the width, the damage exceeds what
+   * even `H` can rebuild and scanners start refusing the code.
+   */
+  logo?: SvgLogo
+}
+
+export interface SvgLogo {
+  /**
+   * SVG markup for the mark, WITHOUT its own `<svg>` wrapper — paths, shapes,
+   * a `<g>`. It is placed in a nested coordinate system, so author it against
+   * `viewBox` below and let this scale it.
+   */
+  content: string
+  /** The coordinate system `content` is drawn in. Defaults to `0 0 24 24`. */
+  viewBox?: string
+  /**
+   * Fraction of the code's width the mark occupies. Defaults to 0.22; values
+   * above 0.3 are rejected, because at that point the code stops scanning.
+   */
+  size?: number
+  /**
+   * Colour painted behind the mark. Defaults to the code's `background`, which
+   * is what makes the mark legible against the modules. `null` paints nothing.
+   */
+  background?: string | null
+  /** Corner radius of that backing, in module units. Defaults to 1. */
+  radius?: number
+  /** Padding between the mark and the edge of its backing, in module units. */
+  padding?: number
 }
 
 function escapeXml(value: string): string {
@@ -1809,10 +1849,27 @@ export function toSvg(text: string, options: SvgOptions = {}): string {
   const margin = options.margin ?? 4
   const color = options.color ?? '#000000'
   const background = options.background === undefined ? '#ffffff' : options.background
-  const matrix = toMatrix(text, options.correctLevel ?? QRErrorCorrectLevel.M)
+  const logo = options.logo
+
+  if (logo && (logo.size ?? 0.22) > 0.3)
+    throw new RangeError(`A logo covering ${Math.round((logo.size ?? 0.22) * 100)}% of the code destroys more data than error correction can rebuild. Keep logo.size at 0.3 or below.`)
+
+  // A logo erases modules, so the code has to be able to rebuild them. `H`
+  // recovers about 30%; anything lower and a branded code scans on a good
+  // phone in good light and fails everywhere else. A caller who asked for `H`
+  // (or `Q`) already keeps their choice.
+  const correctLevel = logo
+    ? highestCorrection(options.correctLevel)
+    : options.correctLevel ?? QRErrorCorrectLevel.M
+  const matrix = toMatrix(text, correctLevel)
 
   const size = matrix.length
   const extent = size + margin * 2
+
+  // The square of modules the mark covers, in module units. Cleared rather than
+  // drawn over: a mark with transparent areas would otherwise show the code
+  // through itself.
+  const logoBox = logo ? centredBox(size, logo.size ?? 0.22) : null
 
   // One path, built from horizontal runs of dark modules. `h w v 1 h -w z`
   // closes each run as a 1-module-tall bar; adjacent bars merge visually
@@ -1828,8 +1885,11 @@ export function toSvg(text: string, options: SvgOptions = {}): string {
       }
       const start = col
       while (col < size && line[col]) col++
-      const run = col - start
-      path += `M${start + margin} ${row + margin}h${run}v1h-${run}z`
+      for (const [from, to] of visibleRuns(start, col, row, logoBox)) {
+        const run = to - from
+        if (run > 0)
+          path += `M${from + margin} ${row + margin}h${run}v1h-${run}z`
+      }
     }
   }
 
@@ -1845,5 +1905,66 @@ export function toSvg(text: string, options: SvgOptions = {}): string {
     ? ''
     : `<rect width="${extent}" height="${extent}" fill="${escapeXml(background)}"/>`
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${extent} ${extent}" ${dimensions} shape-rendering="crispEdges" ${label}>${backdrop}<path fill="${escapeXml(color)}" d="${path}"/></svg>`
+  const mark = logo && logoBox ? renderLogo(logo, logoBox, background, margin) : ''
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${extent} ${extent}" ${dimensions} shape-rendering="crispEdges" ${label}>${backdrop}<path fill="${escapeXml(color)}" d="${path}"/>${mark}</svg>`
+}
+
+/** `H` unless the caller already asked for something at least as strong. */
+function highestCorrection(requested?: QRErrorCorrectLevel): QRErrorCorrectLevel {
+  return requested === QRErrorCorrectLevel.H || requested === QRErrorCorrectLevel.Q
+    ? requested
+    : QRErrorCorrectLevel.H
+}
+
+interface Box { x: number, y: number, span: number }
+
+/**
+ * The centred, whole-module square a mark of `fraction` width occupies.
+ *
+ * Snapped to module boundaries so the cleared area lines up with the code
+ * rather than slicing modules in half, which looks like a rendering fault.
+ */
+function centredBox(size: number, fraction: number): Box {
+  const span = Math.max(1, Math.round(size * fraction))
+  const offset = Math.floor((size - span) / 2)
+  return { x: offset, y: offset, span }
+}
+
+/**
+ * Split a run of dark modules around the cleared centre.
+ *
+ * Returns the run untouched when the mark is elsewhere, and the surviving
+ * left/right pieces when it crosses it.
+ */
+function visibleRuns(start: number, end: number, row: number, box: Box | null): [number, number][] {
+  if (!box || row < box.y || row >= box.y + box.span)
+    return [[start, end]]
+
+  const left = box.x
+  const right = box.x + box.span
+  if (end <= left || start >= right)
+    return [[start, end]]
+
+  const pieces: [number, number][] = []
+  if (start < left)
+    pieces.push([start, Math.min(end, left)])
+  if (end > right)
+    pieces.push([Math.max(start, right), end])
+  return pieces
+}
+
+/** The backing plate and the mark itself, scaled into the cleared square. */
+function renderLogo(logo: SvgLogo, box: Box, codeBackground: string | null, margin: number): string {
+  const backing = logo.background === undefined ? codeBackground : logo.background
+  const radius = logo.radius ?? 1
+  const padding = logo.padding ?? 0.5
+
+  const plate = backing === null || backing === 'transparent'
+    ? ''
+    : `<rect x="${box.x + margin - padding}" y="${box.y + margin - padding}" width="${box.span + padding * 2}" height="${box.span + padding * 2}" rx="${radius}" fill="${escapeXml(backing)}"/>`
+
+  // A nested <svg> does the scaling: the mark is authored in its own viewBox
+  // and mapped onto the cleared square, so callers never compute a transform.
+  return `${plate}<svg x="${box.x + margin}" y="${box.y + margin}" width="${box.span}" height="${box.span}" viewBox="${escapeXml(logo.viewBox ?? '0 0 24 24')}" preserveAspectRatio="xMidYMid meet" overflow="visible">${logo.content}</svg>`
 }
