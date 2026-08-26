@@ -1750,3 +1750,100 @@ export function toTerminal(text: string, options: TerminalOptions = {}): string 
   }
   return lines.join('\n')
 }
+
+export interface SvgOptions {
+  correctLevel?: QRErrorCorrectLevel
+  /**
+   * Modules of quiet zone around the code. Four is the specification's minimum
+   * and not decoration: without it, scanners fail to find the code against
+   * whatever it is placed on.
+   */
+  margin?: number
+  /**
+   * Rendered width and height in pixels. Omit it and the code is sized by
+   * `scale` instead, which is the better default for anything that will be
+   * laid out by CSS — the viewBox does the scaling either way.
+   */
+  size?: number
+  /** Pixels per module, used when `size` is not given. */
+  scale?: number
+  /** Dark module colour. */
+  color?: string
+  /**
+   * Light module colour, drawn as one rect behind the code. `null` leaves it
+   * out, which is only safe where the surface behind is already light: a QR
+   * code on a dark background is one most scanners refuse to read.
+   */
+  background?: string | null
+  /**
+   * Accessible name. Given one, the SVG is exposed as an image with this label;
+   * without one it is hidden from assistive technology, which is right for a
+   * code whose content is also on the page as text.
+   */
+  title?: string
+}
+
+function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
+/**
+ * Render to an SVG string, with no DOM.
+ *
+ * This is the output most uses of a QR code actually want — a membership card,
+ * an email, a server-rendered page, a PDF — and it was the one renderer the
+ * library did not have. `QRCode` draws into an element, so anywhere without a
+ * document was left encoding the matrix and writing the markup by hand, or
+ * reaching for a second QR library to do it.
+ *
+ * The viewBox is in module units and the geometry is integral, so the result is
+ * crisp at any size and small on the wire: dark modules are emitted as one
+ * path of horizontal runs rather than a rect per module, which for a typical
+ * URL is a few hundred bytes instead of tens of kilobytes.
+ */
+export function toSvg(text: string, options: SvgOptions = {}): string {
+  const margin = options.margin ?? 4
+  const color = options.color ?? '#000000'
+  const background = options.background === undefined ? '#ffffff' : options.background
+  const matrix = toMatrix(text, options.correctLevel ?? QRErrorCorrectLevel.M)
+
+  const size = matrix.length
+  const extent = size + margin * 2
+
+  // One path, built from horizontal runs of dark modules. `h w v 1 h -w z`
+  // closes each run as a 1-module-tall bar; adjacent bars merge visually
+  // because the coordinates are exact.
+  let path = ''
+  for (let row = 0; row < size; row++) {
+    const line = matrix[row]!
+    let col = 0
+    while (col < size) {
+      if (!line[col]) {
+        col++
+        continue
+      }
+      const start = col
+      while (col < size && line[col]) col++
+      const run = col - start
+      path += `M${start + margin} ${row + margin}h${run}v1h-${run}z`
+    }
+  }
+
+  const dimensions = options.size !== undefined
+    ? `width="${options.size}" height="${options.size}"`
+    : `width="${extent * (options.scale ?? 4)}" height="${extent * (options.scale ?? 4)}"`
+
+  const label = options.title
+    ? `role="img" aria-label="${escapeXml(options.title)}"><title>${escapeXml(options.title)}</title`
+    : `role="img" aria-hidden="true" focusable="false"`
+
+  const backdrop = background === null || background === 'transparent'
+    ? ''
+    : `<rect width="${extent}" height="${extent}" fill="${escapeXml(background)}"/>`
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${extent} ${extent}" ${dimensions} shape-rendering="crispEdges" ${label}>${backdrop}<path fill="${escapeXml(color)}" d="${path}"/></svg>`
+}

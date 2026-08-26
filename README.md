@@ -85,6 +85,45 @@ qrCode.clear() // clear the code
 qrCode.makeCode('https://docs.stacksjs.org') // create another code
 ```
 
+#### Without a DOM
+
+`QRCode` draws into an element. On a server — rendering a membership card, an
+email, a PDF, a page — there is no element, so the encoder is exposed directly:
+
+```ts
+import { toMatrix, toSvg, toTerminal } from 'ts-qr-codes'
+
+// An SVG string, ready to inline or to base64 into a data URL.
+toSvg('https://stacksjs.org', { size: 360 })
+
+// Named for a screen reader; without a title the code is hidden from
+// assistive technology, which is right when the value is also on the page.
+toSvg('https://stacksjs.org', { title: 'Membership card' })
+
+// Transparent, in your own colours.
+toSvg('https://stacksjs.org', { background: null, color: '#1649ff' })
+
+// The raw modules, if you would rather draw them yourself. `true` is dark.
+toMatrix('https://stacksjs.org')
+
+// Or print it where you are.
+console.log(toTerminal('https://stacksjs.org'))
+```
+
+`toSvg` emits the dark modules as a single path of horizontal runs on a
+module-unit viewBox, so the output is crisp at any size and a few hundred bytes
+rather than the tens of kilobytes a rect-per-module renderer produces.
+
+| Option | Default | |
+|---|---|---|
+| `size` | — | Rendered width/height in pixels. Omit to size by `scale`. |
+| `scale` | `4` | Pixels per module, used when `size` is not given. |
+| `margin` | `4` | Modules of quiet zone. Four is the specification's minimum. |
+| `color` | `#000000` | Dark module colour. |
+| `background` | `#ffffff` | Light colour, drawn as one rect. `null` omits it. |
+| `title` | — | Accessible name. Without one the SVG is `aria-hidden`. |
+| `correctLevel` | `M` | Error correction level. |
+
 ### Barcode
 
 A lightweight Barcode library with zero dependencies. It supports multiple barcode formats and works in browsers and with _Node.js & Bun_.
