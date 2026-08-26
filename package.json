@@ -1,7 +1,7 @@
 {
   "name": "ts-quick-codes",
   "type": "module",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "private": true,
   "description": "QR & Bar Code generating & reading. Lightweight & powerful.",
   "author": "Chris Breuer <chris@stacksjs.org>",
