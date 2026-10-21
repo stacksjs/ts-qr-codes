@@ -1,3 +1,178 @@
+[Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.8...v0.1.9)
+
+## 🚀 Features
+
+- **qr**: brand a code with a centre mark ([a723e39](https://github.com/stacksjs/ts-qr-codes/commit/a723e39)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **qr**: render to SVG without a DOM, and stop shipping five unused deps ([1c597c2](https://github.com/stacksjs/ts-qr-codes/commit/1c597c2)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🐛 Bug Fixes
+
+- **git**: stop tracking the cross-compiled CLI binaries ([018c759](https://github.com/stacksjs/ts-qr-codes/commit/018c759)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **release**: point every manifest at the renamed repository ([71e4e84](https://github.com/stacksjs/ts-qr-codes/commit/71e4e84)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **ci**: setup-php 2.37.1, which closes the open advisory ([eb347fe](https://github.com/stacksjs/ts-qr-codes/commit/eb347fe)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **build**: make the packages publishable, and make what they publish work ([f9c80a2](https://github.com/stacksjs/ts-qr-codes/commit/f9c80a2)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **qr**: draw the finder patterns correctly, and stop capping at version 5 ([f670bd9](https://github.com/stacksjs/ts-qr-codes/commit/f670bd9)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **qr**: keep the browser build free of node builtins ([ba39877](https://github.com/stacksjs/ts-qr-codes/commit/ba39877)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **scripts**: stop double-generating CHANGELOG on release ([d17e503](https://github.com/stacksjs/ts-qr-codes/commit/d17e503)) _(by Glenn Michael Torregosa <gtorregosa@gmail.com>)_
+- correct import path in qrx test ([0326764](https://github.com/stacksjs/ts-qr-codes/commit/0326764)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- resolve typecheck errors ([cf2b66e](https://github.com/stacksjs/ts-qr-codes/commit/cf2b66e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## ♻️ Code Refactoring
+
+- **cli**: swap cac for @stacksjs/clapp ([a65def9](https://github.com/stacksjs/ts-qr-codes/commit/a65def9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+
+## 📚 Documentation
+
+- link the community as stacksjs.com/discord ([e62a870](https://github.com/stacksjs/ts-qr-codes/commit/e62a870)) _(by Chris <chrisbreuer93@gmail.com>)_
+- adjust formatting ([1cb6d5c](https://github.com/stacksjs/ts-qr-codes/commit/1cb6d5c)) _(by Chris <chrisbreuer93@gmail.com>)_
+- adjust spacing ([1f4f491](https://github.com/stacksjs/ts-qr-codes/commit/1f4f491)) _(by Chris <chrisbreuer93@gmail.com>)_
+- fix links ([08984df](https://github.com/stacksjs/ts-qr-codes/commit/08984df)) _(by Chris <chrisbreuer93@gmail.com>)_
+- qr code docs updates ([a2d6877](https://github.com/stacksjs/ts-qr-codes/commit/a2d6877)) _(by Chris <chrisbreuer93@gmail.com>)_
+- fix links ([5bad284](https://github.com/stacksjs/ts-qr-codes/commit/5bad284)) _(by Chris <chrisbreuer93@gmail.com>)_
+- do not collapse barcode sidebar section ([7efe740](https://github.com/stacksjs/ts-qr-codes/commit/7efe740)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add msi docs ([1777fb0](https://github.com/stacksjs/ts-qr-codes/commit/1777fb0)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update codabar docs ([7c9001d](https://github.com/stacksjs/ts-qr-codes/commit/7c9001d)) _(by Chris <chrisbreuer93@gmail.com>)_
+- several updates ([f600422](https://github.com/stacksjs/ts-qr-codes/commit/f600422)) _(by Chris <chrisbreuer93@gmail.com>)_
+- several updates & additions ([db638b5](https://github.com/stacksjs/ts-qr-codes/commit/db638b5)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add EAN5 page ([d778248](https://github.com/stacksjs/ts-qr-codes/commit/d778248)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add several EAN pages ([6f1ad82](https://github.com/stacksjs/ts-qr-codes/commit/6f1ad82)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update code128 and code39 ([208638e](https://github.com/stacksjs/ts-qr-codes/commit/208638e)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add sidebar items ([32b5d06](https://github.com/stacksjs/ts-qr-codes/commit/32b5d06)) _(by Chris <chrisbreuer93@gmail.com>)_
+- adjust desc and title ([ce8ce53](https://github.com/stacksjs/ts-qr-codes/commit/ce8ce53)) _(by Chris <chrisbreuer93@gmail.com>)_
+
+## 🧹 Chores
+
+- release v0.1.9 ([d65af93](https://github.com/stacksjs/ts-qr-codes/commit/d65af93)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.8 ([5ccb614](https://github.com/stacksjs/ts-qr-codes/commit/5ccb614)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.7 ([cfa8db4](https://github.com/stacksjs/ts-qr-codes/commit/cfa8db4)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.6 ([7632b79](https://github.com/stacksjs/ts-qr-codes/commit/7632b79)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.5 ([0dfff0b](https://github.com/stacksjs/ts-qr-codes/commit/0dfff0b)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.4 ([3caf1f1](https://github.com/stacksjs/ts-qr-codes/commit/3caf1f1)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **docs**: move to @stacksjs/bunpress 0.2 ([2132e65](https://github.com/stacksjs/ts-qr-codes/commit/2132e65)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.3 ([2e4d07b](https://github.com/stacksjs/ts-qr-codes/commit/2e4d07b)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: declare bun ^1.3.14 in deps.yaml ([8955753](https://github.com/stacksjs/ts-qr-codes/commit/8955753)) _(by Chris <chrisbreuer93@gmail.com>)_
+- release v0.1.2 ([37f6ae0](https://github.com/stacksjs/ts-qr-codes/commit/37f6ae0)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.37 ([adffcfa](https://github.com/stacksjs/ts-qr-codes/commit/adffcfa)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.35 ([cd227c6](https://github.com/stacksjs/ts-qr-codes/commit/cd227c6)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up pickier 0.1.33 ([c293488](https://github.com/stacksjs/ts-qr-codes/commit/c293488)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up @stacksjs/logsmith 0.2.3 ([cd899bd](https://github.com/stacksjs/ts-qr-codes/commit/cd899bd)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: refresh bun.lock to pick up buddy-bot 0.9.20 ([ebb6758](https://github.com/stacksjs/ts-qr-codes/commit/ebb6758)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: bump better-dx to ^0.2.15 ([ff29218](https://github.com/stacksjs/ts-qr-codes/commit/ff29218)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- switch lint scripts from eslint to pickier ([cc44c44](https://github.com/stacksjs/ts-qr-codes/commit/cc44c44)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock to pick up bun-plugin-dtsx@0.9.18 ([c9cdb07](https://github.com/stacksjs/ts-qr-codes/commit/c9cdb07)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock and apply pickier --fix ([4241782](https://github.com/stacksjs/ts-qr-codes/commit/4241782)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock ([a513bbf](https://github.com/stacksjs/ts-qr-codes/commit/a513bbf)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- refresh bun.lock to pick up latest pickier ([d740481](https://github.com/stacksjs/ts-qr-codes/commit/d740481)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- fresh install to pick up dtsx 0.9.14 and bunfig 0.15.9 ([36d043d](https://github.com/stacksjs/ts-qr-codes/commit/36d043d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- fresh install to pick up pickier 0.1.21 ([d7df02d](https://github.com/stacksjs/ts-qr-codes/commit/d7df02d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- gitignore pantry directory ([73d9c3e](https://github.com/stacksjs/ts-qr-codes/commit/73d9c3e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- include md in pickier lint extensions ([a40cd34](https://github.com/stacksjs/ts-qr-codes/commit/a40cd34)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- repo cleanup and modernization ([7b3631f](https://github.com/stacksjs/ts-qr-codes/commit/7b3631f)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- add git-hooks config ([3425e1a](https://github.com/stacksjs/ts-qr-codes/commit/3425e1a)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- remove .zed and .cursor folders ([6cb65dc](https://github.com/stacksjs/ts-qr-codes/commit/6cb65dc)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- remove redundant docs/.vitepress ([0086b14](https://github.com/stacksjs/ts-qr-codes/commit/0086b14)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([c12bb66](https://github.com/stacksjs/ts-qr-codes/commit/c12bb66)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update better-dx to ^0.2.7 ([94b27fe](https://github.com/stacksjs/ts-qr-codes/commit/94b27fe)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- enrich CLAUDE.md with detailed project context from README ([337245e](https://github.com/stacksjs/ts-qr-codes/commit/337245e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- update CLAUDE.md with project context and crosswind details ([7094a5e](https://github.com/stacksjs/ts-qr-codes/commit/7094a5e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- add proper claude code guidelines ([1443ac9](https://github.com/stacksjs/ts-qr-codes/commit/1443ac9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- use pantry monorepo action instead of pantry-setup ([1759263](https://github.com/stacksjs/ts-qr-codes/commit/1759263)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([e7246c0](https://github.com/stacksjs/ts-qr-codes/commit/e7246c0)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([a139119](https://github.com/stacksjs/ts-qr-codes/commit/a139119)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([0517608](https://github.com/stacksjs/ts-qr-codes/commit/0517608)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([57d32a7](https://github.com/stacksjs/ts-qr-codes/commit/57d32a7)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([9509d50](https://github.com/stacksjs/ts-qr-codes/commit/9509d50)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([e9fad2a](https://github.com/stacksjs/ts-qr-codes/commit/e9fad2a)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([9d9eead](https://github.com/stacksjs/ts-qr-codes/commit/9d9eead)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([33e9e80](https://github.com/stacksjs/ts-qr-codes/commit/33e9e80)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([7dfd5a9](https://github.com/stacksjs/ts-qr-codes/commit/7dfd5a9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([6bcb57d](https://github.com/stacksjs/ts-qr-codes/commit/6bcb57d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([d256fde](https://github.com/stacksjs/ts-qr-codes/commit/d256fde)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([5a5d633](https://github.com/stacksjs/ts-qr-codes/commit/5a5d633)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([383b248](https://github.com/stacksjs/ts-qr-codes/commit/383b248)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([9481dcf](https://github.com/stacksjs/ts-qr-codes/commit/9481dcf)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- release v0.1.1 ([700410a](https://github.com/stacksjs/ts-qr-codes/commit/700410a)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([3effe3d](https://github.com/stacksjs/ts-qr-codes/commit/3effe3d)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([d0a69e6](https://github.com/stacksjs/ts-qr-codes/commit/d0a69e6)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([485d0a9](https://github.com/stacksjs/ts-qr-codes/commit/485d0a9)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([507c7fc](https://github.com/stacksjs/ts-qr-codes/commit/507c7fc)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([00b35a6](https://github.com/stacksjs/ts-qr-codes/commit/00b35a6)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([7da9fde](https://github.com/stacksjs/ts-qr-codes/commit/7da9fde)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- wip ([2cc9c1e](https://github.com/stacksjs/ts-qr-codes/commit/2cc9c1e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- **deps**: update actions/checkout action to v6 (#40) ([5f4edf5](https://github.com/stacksjs/ts-qr-codes/commit/5f4edf5)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#40](https://github.com/stacksjs/ts-qr-codes/issues/40), [#40](https://github.com/stacksjs/ts-qr-codes/issues/40))
+- **deps**: update dependency actions/cache to v5.0.3 (#130) ([e5852b8](https://github.com/stacksjs/ts-qr-codes/commit/e5852b8)) _(by Chris <chrisbreuer93@gmail.com>)_ ([#130](https://github.com/stacksjs/ts-qr-codes/issues/130), [#130](https://github.com/stacksjs/ts-qr-codes/issues/130))
+- **deps**: update dependency actions/checkout to v6.0.2 (#131) ([24693b5](https://github.com/stacksjs/ts-qr-codes/commit/24693b5)) _(by Chris <chrisbreuer93@gmail.com>)_ ([#131](https://github.com/stacksjs/ts-qr-codes/issues/131), [#131](https://github.com/stacksjs/ts-qr-codes/issues/131))
+- update cover & og-images ([7857185](https://github.com/stacksjs/ts-qr-codes/commit/7857185)) _(by cab-mikee <mike.cabz32@gmail.com>)_
+- **deps**: update dependency lint-staged to 16.2.3 (#32) ([651ff92](https://github.com/stacksjs/ts-qr-codes/commit/651ff92)) _(by Chris <chrisbreuer93@gmail.com>)_ ([#32](https://github.com/stacksjs/ts-qr-codes/issues/32), [#32](https://github.com/stacksjs/ts-qr-codes/issues/32))
+- **deps**: update dependency lint-staged to v16 ([662e8db](https://github.com/stacksjs/ts-qr-codes/commit/662e8db)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_
+- **deps**: update all non-major dependencies (updated) ([cfc6f65](https://github.com/stacksjs/ts-qr-codes/commit/cfc6f65)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update all non-major dependencies (updated) ([92309aa](https://github.com/stacksjs/ts-qr-codes/commit/92309aa)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency actions/checkout to v5.0.0 (updated) ([613c0c7](https://github.com/stacksjs/ts-qr-codes/commit/613c0c7)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update all non-major dependencies (updated) ([a1b1548](https://github.com/stacksjs/ts-qr-codes/commit/a1b1548)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update all non-major dependencies ([8f403c5](https://github.com/stacksjs/ts-qr-codes/commit/8f403c5)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency buddy-bot to 0.9.7 (updated) ([bfa925d](https://github.com/stacksjs/ts-qr-codes/commit/bfa925d)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency buddy-bot to 0.9.5 (updated) ([1c65dd2](https://github.com/stacksjs/ts-qr-codes/commit/1c65dd2)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency buddy-bot to 0.9.4 ([745f88c](https://github.com/stacksjs/ts-qr-codes/commit/745f88c)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency actions/checkout to v5.0.0 ([031dca5](https://github.com/stacksjs/ts-qr-codes/commit/031dca5)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency @stacksjs/eslint-config to 4.14.0-beta.3 ([1e42307](https://github.com/stacksjs/ts-qr-codes/commit/1e42307)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- **deps**: update dependency @stacksjs/docs to 0.70.23 ([1f94c26](https://github.com/stacksjs/ts-qr-codes/commit/1f94c26)) _(by [github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>](https://github.com/github-actions[bot]))_
+- update tooling ([0ae4dd0](https://github.com/stacksjs/ts-qr-codes/commit/0ae4dd0)) _(by Adelino Ngomacha <adelinob335@gmail.com>)_
+- build changes and stargazer ([2f756a3](https://github.com/stacksjs/ts-qr-codes/commit/2f756a3)) _(by cab-mikee <mike.cabz32@gmail.com>)_
+- add stacks/docs and cursor rules ([911c4b3](https://github.com/stacksjs/ts-qr-codes/commit/911c4b3)) _(by cab-mikee <mike.cabz32@gmail.com>)_
+- **deps**: update dependency unocss to v66 (#24) ([80bed86](https://github.com/stacksjs/ts-qr-codes/commit/80bed86)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#24](https://github.com/stacksjs/ts-qr-codes/issues/24), [#24](https://github.com/stacksjs/ts-qr-codes/issues/24))
+- wip ([735f11b](https://github.com/stacksjs/ts-qr-codes/commit/735f11b)) _(by Chris <chrisbreuer93@gmail.com>)_
+- enhance funding ([5375e7e](https://github.com/stacksjs/ts-qr-codes/commit/5375e7e)) _(by cab-mikee <mike.cabz32@gmail.com>)_
+- enhance sponsor ([8bc9f96](https://github.com/stacksjs/ts-qr-codes/commit/8bc9f96)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add github funding info ([02287b0](https://github.com/stacksjs/ts-qr-codes/commit/02287b0)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: update dependency @shikijs/vitepress-twoslash to v2 (#21) ([61a4fdf](https://github.com/stacksjs/ts-qr-codes/commit/61a4fdf)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#21](https://github.com/stacksjs/ts-qr-codes/issues/21), [#21](https://github.com/stacksjs/ts-qr-codes/issues/21))
+- update title ([7a36007](https://github.com/stacksjs/ts-qr-codes/commit/7a36007)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update cover ([082451b](https://github.com/stacksjs/ts-qr-codes/commit/082451b)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update meta images ([ddc35d1](https://github.com/stacksjs/ts-qr-codes/commit/ddc35d1)) _(by Chris <chrisbreuer93@gmail.com>)_
+- update bun ([7c976e8](https://github.com/stacksjs/ts-qr-codes/commit/7c976e8)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: update dependency bumpp to v10 (#22) ([54edc00](https://github.com/stacksjs/ts-qr-codes/commit/54edc00)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#22](https://github.com/stacksjs/ts-qr-codes/issues/22), [#22](https://github.com/stacksjs/ts-qr-codes/issues/22))
+- lint fix & improve sponsor ([16d803f](https://github.com/stacksjs/ts-qr-codes/commit/16d803f)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add keywords ([141052f](https://github.com/stacksjs/ts-qr-codes/commit/141052f)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: update dependency unocss to v65 (#20) ([c042d3f](https://github.com/stacksjs/ts-qr-codes/commit/c042d3f)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#20](https://github.com/stacksjs/ts-qr-codes/issues/20), [#20](https://github.com/stacksjs/ts-qr-codes/issues/20))
+- adjust public og image ([bb5ddbf](https://github.com/stacksjs/ts-qr-codes/commit/bb5ddbf)) _(by Chris <chrisbreuer93@gmail.com>)_
+- improve demo validation ([eca389b](https://github.com/stacksjs/ts-qr-codes/commit/eca389b)) _(by Chris <chrisbreuer93@gmail.com>)_
+- add barcode demo ([cf0533a](https://github.com/stacksjs/ts-qr-codes/commit/cf0533a)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([4a13c42](https://github.com/stacksjs/ts-qr-codes/commit/4a13c42)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([d01a5e3](https://github.com/stacksjs/ts-qr-codes/commit/d01a5e3)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([48debc0](https://github.com/stacksjs/ts-qr-codes/commit/48debc0)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([f058b7d](https://github.com/stacksjs/ts-qr-codes/commit/f058b7d)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([eb1b58b](https://github.com/stacksjs/ts-qr-codes/commit/eb1b58b)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([45e6842](https://github.com/stacksjs/ts-qr-codes/commit/45e6842)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([0d9d33a](https://github.com/stacksjs/ts-qr-codes/commit/0d9d33a)) _(by Chris <chrisbreuer93@gmail.com>)_
+- wip ([aaa5a87](https://github.com/stacksjs/ts-qr-codes/commit/aaa5a87)) _(by Chris <chrisbreuer93@gmail.com>)_
+- adjust readme version ([ccb5719](https://github.com/stacksjs/ts-qr-codes/commit/ccb5719)) _(by Chris <chrisbreuer93@gmail.com>)_
+- **deps**: update dependency unplugin-icons to v22 (#18) ([c630ea9](https://github.com/stacksjs/ts-qr-codes/commit/c630ea9)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#18](https://github.com/stacksjs/ts-qr-codes/issues/18), [#18](https://github.com/stacksjs/ts-qr-codes/issues/18))
+- **deps**: update dependency unplugin-vue-components to v28 (#19) ([e9cfc1f](https://github.com/stacksjs/ts-qr-codes/commit/e9cfc1f)) _(by [renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot]))_ ([#19](https://github.com/stacksjs/ts-qr-codes/issues/19), [#19](https://github.com/stacksjs/ts-qr-codes/issues/19))
+
+## 📄 Miscellaneous
+
+- Update package.json ([a18095e](https://github.com/stacksjs/ts-qr-codes/commit/a18095e)) _(by glennmichael123 <gtorregosa@gmail.com>)_
+- Merge pull request #132 from stacksjs/buddy-bot/update-non-major-updates-1770675627902 ([2371a60](https://github.com/stacksjs/ts-qr-codes/commit/2371a60)) _(by Chris <chrisbreuer93@gmail.com>)_ ([#132](https://github.com/stacksjs/ts-qr-codes/issues/132), [#132](https://github.com/stacksjs/ts-qr-codes/issues/132))
+- Merge pull request #31 from stacksjs/buddy-bot/update-major-update---bunfig-1756232406714 ([d87d2a4](https://github.com/stacksjs/ts-qr-codes/commit/d87d2a4)) _(by Chris <chrisbreuer93@gmail.com>)_ ([#31](https://github.com/stacksjs/ts-qr-codes/issues/31), [#31](https://github.com/stacksjs/ts-qr-codes/issues/31))
+- Merge pull request #29 from stacksjs/buddy-bot/update-major-update---@stacksjs/eslint-config-1756232394692 ([2dc69ca](https://github.com/stacksjs/ts-qr-codes/commit/2dc69ca)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_ ([#29](https://github.com/stacksjs/ts-qr-codes/issues/29), [#29](https://github.com/stacksjs/ts-qr-codes/issues/29))
+- Merge branch 'main' into buddy-bot/update-major-update---@stacksjs/eslint-config-1756232394692 ([6fd4d72](https://github.com/stacksjs/ts-qr-codes/commit/6fd4d72)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_
+- Merge pull request #28 from stacksjs/buddy-bot/update-major-update---@stacksjs/docs-1756232386107 ([a775bf2](https://github.com/stacksjs/ts-qr-codes/commit/a775bf2)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_ ([#28](https://github.com/stacksjs/ts-qr-codes/issues/28), [#28](https://github.com/stacksjs/ts-qr-codes/issues/28))
+- Merge branch 'main' into buddy-bot/update-major-update---@stacksjs/docs-1756232386107 ([72274d2](https://github.com/stacksjs/ts-qr-codes/commit/72274d2)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_
+- Merge pull request #30 from stacksjs/buddy-bot/update-major-update---actions/checkout-1756232400599 ([c4b601e](https://github.com/stacksjs/ts-qr-codes/commit/c4b601e)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_ ([#30](https://github.com/stacksjs/ts-qr-codes/issues/30), [#30](https://github.com/stacksjs/ts-qr-codes/issues/30))
+- Merge pull request #25 from stacksjs/renovate/lint-staged-16.x ([bac0a89](https://github.com/stacksjs/ts-qr-codes/commit/bac0a89)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_ ([#25](https://github.com/stacksjs/ts-qr-codes/issues/25), [#25](https://github.com/stacksjs/ts-qr-codes/issues/25))
+- Merge pull request #35 from stacksjs/buddy-bot/update-major-update---buddy-bot-1756793639350 ([5b269b1](https://github.com/stacksjs/ts-qr-codes/commit/5b269b1)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_ ([#35](https://github.com/stacksjs/ts-qr-codes/issues/35), [#35](https://github.com/stacksjs/ts-qr-codes/issues/35))
+- Merge branch 'main' into buddy-bot/update-major-update---buddy-bot-1756793639350 ([496b0da](https://github.com/stacksjs/ts-qr-codes/commit/496b0da)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_
+- Merge pull request #36 from stacksjs/buddy-bot/update-non-major-updates-1758596032562 ([e16dd48](https://github.com/stacksjs/ts-qr-codes/commit/e16dd48)) _(by Michael Vincent Caballero <mike.cabz32@gmail.com>)_ ([#36](https://github.com/stacksjs/ts-qr-codes/issues/36), [#36](https://github.com/stacksjs/ts-qr-codes/issues/36))
+
+## Contributors
+
+- _Adelino Ngomacha <adelinob335@gmail.com>_
+- _Chris <chrisbreuer93@gmail.com>_
+- _Glenn Michael Torregosa <gtorregosa@gmail.com>_
+- _Michael Vincent Caballero <mike.cabz32@gmail.com>_
+- _[renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>](https://github.com/renovate[bot])_
+- _cab-mikee <mike.cabz32@gmail.com>_
+- _glennmichael123 <gtorregosa@gmail.com>_
+
 <<<<<<< HEAD
 [Compare changes](https://github.com/stacksjs/ts-qr-codes/compare/v0.1.6...v0.1.7)
 

@@ -180,4 +180,37 @@ describe('toSvg', () => {
     // produce a viewBox that grows with it.
     expect(modules(toSvg('x'.repeat(200)))).toBeGreaterThan(modules(toSvg('x')))
   })
+
+  it('places a dot at every encoded module centre', () => {
+    const matrix = toMatrix('https://hq.training/app')
+    const svg = toSvg('https://hq.training/app', { moduleStyle: 'dots' })
+    const dots = new Set(Array.from(svg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)"/g), match => `${Number(match[2]) - 4.5},${Number(match[1]) - 4.5}`))
+    for (let row = 0; row < matrix.length; row++) {
+      for (let col = 0; col < matrix.length; col++)
+        expect(dots.has(`${row},${col}`)).toBe(matrix[row]![col]!)
+    }
+    expect(svg).toContain('shape-rendering="geometricPrecision"')
+  })
+
+  it('reserves all three finder patterns for rounded rings, including transparent backgrounds', () => {
+    const svg = toSvg('HELLO', { moduleStyle: 'dots', finderStyle: 'rounded', background: null })
+    expect(svg.match(/stroke-width="1"/g)).toHaveLength(3)
+    expect(svg.match(/width="3" height="3"/g)).toHaveLength(3)
+    expect(svg).not.toContain('<circle cx="4.5" cy="4.5"')
+    expect(svg).toContain('x="4.5" y="4.5" width="6" height="6"')
+    expect(svg).toContain('x="18.5" y="4.5" width="6" height="6"')
+    expect(svg).toContain('x="4.5" y="18.5" width="6" height="6"')
+    expect(svg).not.toContain('fill="#ffffff"')
+  })
+
+  it('clears dotted modules beneath a centre logo', () => {
+    const svg = toSvg('https://hq.training/app', { moduleStyle: 'dots', finderStyle: 'rounded', logo: { content: '<text>HQ</text>', padding: 0 } })
+    const span = Math.round((modules(svg) - 8) * 0.22)
+    const start = Math.floor((modules(svg) - 8 - span) / 2) + 4
+    for (const match of svg.matchAll(/<circle cx="([\d.]+)" cy="([\d.]+)"/g)) {
+      const x = Number(match[1])
+      const y = Number(match[2])
+      expect(x < start || x >= start + span || y < start || y >= start + span).toBe(true)
+    }
+  })
 })

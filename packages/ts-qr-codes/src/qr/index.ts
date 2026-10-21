@@ -1753,6 +1753,10 @@ export function toTerminal(text: string, options: TerminalOptions = {}): string 
 
 export interface SvgOptions {
   correctLevel?: QRErrorCorrectLevel
+  /** Module geometry. Square preserves the compact, default path output. */
+  moduleStyle?: 'square' | 'dots'
+  /** Geometry of the three seven-module corner finder patterns. */
+  finderStyle?: 'square' | 'rounded'
   /**
    * Modules of quiet zone around the code. Four is the specification's minimum
    * and not decoration: without it, scanners fail to find the code against
@@ -1870,24 +1874,34 @@ export function toSvg(text: string, options: SvgOptions = {}): string {
   // drawn over: a mark with transparent areas would otherwise show the code
   // through itself.
   const logoBox = logo ? centredBox(size, logo.size ?? 0.22) : null
+  const roundedFinders = options.finderStyle === 'rounded'
+  const dotted = options.moduleStyle === 'dots'
+  const finders = [{ x: 0, y: 0 }, { x: size - 7, y: 0 }, { x: 0, y: size - 7 }]
+  const visible = (row: number, col: number): boolean => !!matrix[row]![col]
+    && !(roundedFinders && finders.some(box => col >= box.x && col < box.x + 7 && row >= box.y && row < box.y + 7))
 
   // One path, built from horizontal runs of dark modules. `h w v 1 h -w z`
   // closes each run as a 1-module-tall bar; adjacent bars merge visually
   // because the coordinates are exact.
   let path = ''
+  let dots = ''
   for (let row = 0; row < size; row++) {
     const line = matrix[row]!
     let col = 0
     while (col < size) {
-      if (!line[col]) {
+      if (!line[col] || !visible(row, col)) {
         col++
         continue
       }
       const start = col
-      while (col < size && line[col]) col++
+      while (col < size && visible(row, col)) col++
       for (const [from, to] of visibleRuns(start, col, row, logoBox)) {
         const run = to - from
-        if (run > 0)
+        if (dotted) {
+          for (let dot = from; dot < to; dot++)
+            dots += `<circle cx="${dot + margin + 0.5}" cy="${row + margin + 0.5}" r="0.42"/>`
+        }
+        else if (run > 0)
           path += `M${from + margin} ${row + margin}h${run}v1h-${run}z`
       }
     }
@@ -1906,8 +1920,13 @@ export function toSvg(text: string, options: SvgOptions = {}): string {
     : `<rect width="${extent}" height="${extent}" fill="${escapeXml(background)}"/>`
 
   const mark = logo && logoBox ? renderLogo(logo, logoBox, background, margin) : ''
+  const modules = dotted ? `<g fill="${escapeXml(color)}">${dots}</g>` : `<path fill="${escapeXml(color)}" d="${path}"/>`
+  const corners = roundedFinders
+    ? finders.map(({ x, y }) => `<rect x="${x + margin + 0.5}" y="${y + margin + 0.5}" width="6" height="6" rx="1.2" fill="none" stroke="${escapeXml(color)}" stroke-width="1"/><rect x="${x + margin + 2}" y="${y + margin + 2}" width="3" height="3" rx="0.6" fill="${escapeXml(color)}"/>`).join('')
+    : ''
+  const rendering = dotted || roundedFinders ? 'geometricPrecision' : 'crispEdges'
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${extent} ${extent}" ${dimensions} shape-rendering="crispEdges" ${label}>${backdrop}<path fill="${escapeXml(color)}" d="${path}"/>${mark}</svg>`
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${extent} ${extent}" ${dimensions} shape-rendering="${rendering}" ${label}>${backdrop}${modules}${corners}${mark}</svg>`
 }
 
 /** `H` unless the caller already asked for something at least as strong. */
